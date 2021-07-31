@@ -1,0 +1,308 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath, amssymb, amsfonts, amsthm, mathtools,mathrsfs}
+\usepackage{thmtools}
+\usepackage[utf8]{inputenc}
+\usepackage[inline]{enumitem}
+\usepackage[colorlinks=true]{hyperref}
+\usepackage{multicol}
+\usepackage{tikz}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{arrows.meta}
+\usepackage{witharrows}
+\usepackage[useregional, showdow]{datetime2}
+\usepackage{physics}
+\DTMlangsetup[en-GB]{abbr}
+\usepackage{xcolor}
+\usepackage[normalem]{ulem}
+
+
+\setlength\parindent{0pt}
+\usepackage{parskip}
+
+\def\D{\mathrm{d}}
+\newcommand*{\thead}[1]{\multicolumn{1}{c}{\bfseries #1}}
+\renewcommand{\arraystretch}{1}
+
+\usepackage[framemethod=tikz]{mdframed}
+\mdfdefinestyle{theoremstyle}{%
+	% linecolor=gray,linewidth=1pt,%
+	% frametitlerule=true,%
+	frametitlebackgroundcolor=white,
+	% backgroundcolor=  gray!20,	
+	bottomline=false, topline=false, rightline=false, leftline=true,
+	innerlinewidth=0.7pt, outerlinewidth=0.7pt, middlelinewidth=2pt, middlelinecolor=white, %
+	innerleftmargin=6pt,
+	% innertopmargin=-1pt,
+	skipabove=10pt,
+	% fontcolor=blue,
+	% innerbottommargin=-0.5pt,
+}
+\mdtheorem[style=theoremstyle]{defn}[thm]{Definition}
+\mdtheorem[style=theoremstyle]{lem}[thm]{Lemma}
+\mdtheorem[style=theoremstyle]{thm}{Theorem}
+\mdtheorem[style=theoremstyle]{claim}[thm]{Claim.}
+
+\newcommand*{\doublerule}{\hrule width \hsize height 1pt \kern 0.5mm \hrule width \hsize height 2pt}
+\newcommand{\doublerulefill}{\leavevmode\leaders\vbox{\hrule width .1pt\kern1pt\hrule}\hfill\kern0pt}
+\def\ddfrac#1#2{\displaystyle\frac{\displaystyle #1}{\displaystyle #2}}
+
+
+%\newcommand{\Res}{\operatorname{Res}}
+
+\theoremstyle{definition}
+% \numberwithin{thm}{section}
+% \newtheorem{lem}[thm]{Lemma}
+% \newtheorem{defn}[thm]{Definition}
+% \newtheorem{prop}[thm]{Proposition}
+% \newtheorem{cor}[thm]{Corollary}
+
+
+
+\let\emptyset\varnothing
+
+\usepackage{titlesec}
+\titleformat{\section}[block]{\Large\filcenter\bfseries}{\S\thesection.}{0.25cm}{\Large}
+\titleformat{\subsection}[block]{\large\bfseries\sffamily}{\S\S\thesubsection.}{0.2cm}{\large}
+
+\usepackage[a4paper]{geometry}
+\usepackage{lipsum}
+\usepackage{xcolor,cancel}
+
+\usepackage{cleveref}
+\crefname{thm}{Theorem}{Theorems}
+\crefname{lem}{Lemma}{Lemmas}
+\crefname{defn}{Definition}{Definitions}
+\crefname{prop}{Proposition}{Propositions}
+\crefname{cor}{Corollary}{Corollaries}
+\crefname{equation}{}{}
+
+
+\usepackage{mdframed}
+\newenvironment{blockquote}
+{\begin{mdframed}[skipabove=0pt, skipbelow=0pt, innertopmargin=4pt, innerbottommargin=4pt, bottomline=false,topline=false,rightline=false, linewidth=2pt]}
+{\end{mdframed}}
+\newenvironment{soln}{\begin{proof}[Solution]}{\end{proof}}
+
+
+
+\title{MA 205: Complex Analysis\\Tutorial Solutions}
+\author{Ishan Kapnadak}
+\date{Autumn Semester 2021-22\\~\\Updated on: \textcolor{blue}{\DTMToday}}
+
+\begin{document}
+\tikzset{lab dis/.store in=\LabDis,
+  lab dis=-0.4,
+  ->-/.style args={at #1 with label #2}{decoration={
+    markings,
+    mark=at position #1 with {\arrow{>}; \node at (0,\LabDis) {#2};}},postaction={decorate}},
+  -<-/.style args={at #1 with label #2}{decoration={
+    markings,
+    mark=at position #1 with {\arrow{<}; \node at (0,\LabDis)
+    {#2};}},postaction={decorate}},
+  -*-/.style args={at #1 with label #2}{decoration={
+    markings,
+    mark=at position #1 with {{\fill (0,0) circle (1.5pt);} \node at (0,\LabDis)
+    {#2};}},postaction={decorate}},
+  }
+\maketitle
+\tableofcontents
+
+\medskip
+
+\underline{Note}: Many of these solutions are either inspired by, or in some cases directly taken from Aryaman Maithani's \href{https://aryamanmaithani.github.io/ma-205-tut/tut-solutions.pdf}{tutorial solutions} for last year's offering of this course. 
+
+\newpage\section{Week 1}
+\begin{center}
+	3rd August, 2021
+\end{center}
+
+\underline{Notation}: We use $\mathbb{C}[x]$ to denote the set of all polynomials in $x$ with complex coefficients. $\mathbb{R}[x]$ is defined similarly. 
+
+\begin{enumerate}[leftmargin=*]
+    \itemsep0.5em
+    \item Show that a real polynomial that is irreducible has degree at most two, i.e, if 
+    \[
+        f(x) = a_0 + a_1x + \cdots + a_n x^n , a_i \in \mathbb{R},
+    \]
+    then there are non-constant real polynomials $g$ and $h$ such that $f(x) = g(x) h(x)$ if $n \geq 3$. \textcolor{blue}{($a_n \neq 0$, of course)}
+    
+    \begin{soln}
+        We consider two cases. First, suppose $f(x) \in \mathbb{R}[x]$ has a real root, $x_0$, and let $h(x) \vcentcolon= (x-x_0)$. Since $x_0 \in \mathbb{R}$, $h(x) \in \mathbb{R}[x]$. Moreover, we can write 
+        \[
+            f(x) = g(x) h(x)
+        \]
+        for some $g(x) \in \mathbb{R}[x]$. (Why must $g$ be a real polynomial?) Also, since $\deg f(x) \geq 3$ and $\deg h(x) = 1$, we have that $\deg g(x) \geq 2$. Thus, $g$ and $h$ are two non-constant real polynomials satisfying $f(x) = g(x) h(x)$.
+        
+        Now, suppose that $f(x)$ has no real root. We may also view $f(x)$ as a polynomial in $\mathbb{C}[x]$. By FTA, we know that $f(x)$ has a complex root $x_0 \in \mathbb{C}$. By assumption, we have that $x_0 \notin \mathbb{R}$, and thus $x_0 \neq \overline{x_0}$.
+        
+        \medskip
+        
+        \begin{blockquote}
+			\textbf{Claim.} $f(\overline{x_0}) = 0.$
+			\begin{proof} 
+				We have
+				\[\begin{WithArrows}[displaystyle]
+			    f(\overline{x_0}) &= a_0 + a_1\overline{x_0} + \cdots + a_n(\overline{x_0})^n \Arrow{\textcolor{blue}{$\overline{z^n} = \bar{z}^n$}}\\
+					&= a_0 + a_1\overline{x_0} + \cdots + a_n\overline{x_0^n} \Arrow{\textcolor{blue}{$a_i \in \mathbb{R}  \text{ \emph{and thus,} } a_i = \overline{a_i}$}}\\
+					&= \overline{a_0} + \overline{a_1}\;\overline{x_0} + \cdots + \overline{a_n}\overline{x_0^n} \Arrow{\textcolor{blue}{$\overline{z_1z_2 + z_3} = \overline{z_1}\;\overline{z_2} + \overline{z_3}$}}\\
+					&= \overline{f(x_0)}\\
+					&= \bar{0} \\
+					&= 0.
+			  \end{WithArrows}\]
+			\end{proof}
+		\end{blockquote}
+		
+		Thus, $x_0$ and $\overline{x_0}$ are two distinct roots of $f(x)$. Define $g(x) \vcentcolon= (x-x_0)(x-\overline{x_0})$. A priori, we have $g(x) \in \mathbb{C}[x]$. However, note that
+		\[
+		    (x-x_0)(x-\overline{x_0}) = x^2 - (2\mathfrak{R}x_0)x + \abs{x_0}^2 \in \mathbb{R}[x].
+		\]
+		Thus, $g(x)$ is in fact a real polynomial. Since $x_0$ and $\overline{x_0}$ are distinct, we see that $g(x)$ divides $f(x)$ in $\mathbb{C}[x]$. (Why?) Thus,
+		\[
+		    f(x) = g(x) h(x)
+		\]
+		for some $h(x) \in \mathbb{C}[x]$. Again, since $f(x)$ and $g(x)$ are both real polynomials, so is $f(x)$. Moreover, since $\deg f(x) \geq 3$ and $\deg g(x) = 2$, we have $\deg h(x) \geq 1$, and we are done.
+
+    \end{soln}
+    
+    \item Show that a non-constant polynomial $f(z_1, z_2)$ in complex variables $z_1$ and $z_2$ with complex coefficients, has infinitely many roots in $\mathbb{C}^2$.
+    
+    \begin{soln}
+        Before we prove this, we first prove the following useful Lemma.
+        
+        \medskip
+        
+        \begin{blockquote}
+			\textbf{Lemma.} A complex polynomial of degree $n$ has exactly $n$ roots, counted with multiplicity. In particular, all complex polynomials have finitely many roots. 
+			\begin{proof} 
+				Let $f(x) \in \mathbb{C}[x]$ be a polynomial of degree $n$. We prove this via induction on $n$. When $n = 1$, $f(x) = a_0 + a_1x$ for some $a_0,a_1 \in \mathbb{C}$ with $a_1 \neq 0$. We have
+				\begin{align*}
+				    f(x) &= 0 \\
+				    \iff a_0 + a_1 x &= 0 \\
+				    \iff a_1x &= -a_0 \\
+				    \iff x &= -\frac{a_0}{a_1}.
+				\end{align*}
+				Thus, $f(x)$ has exactly $1$ root. 
+				
+				We now assume that an $n$-degree polynomial $g(x) \in \mathbb{C}[x]$ has exactly $n$ roots (counted with multiplicity). Let $f(x) \in \mathbb{C}[x]$ have degree $n+1$. By FTA, $f(x)$ has a root $x_0 \in \mathbb{C}$. We may thus write
+				\[
+				    f(x) = (x-x_0)g(x),
+				\]
+				for some $n$-degree polynomial $g(x) \in \mathbb{C}[x]$. Now, we have
+				\[
+				    f(x) = 0 \iff x = x_0 \text{ or } g(x) = 0.
+				\]
+				By assumption, the latter happens for exactly $n$ values of $x$. Thus, $f(x)$ has exactly $n+1$ roots counted with multiplicity. The second statement follows from the fact that any polynomial has finite degree.
+			\end{proof}
+		\end{blockquote}
+        
+        Since $f(z_1, z_2)$ is non-constant at least one of $z_1$ or $z_2$ must ``appear'' in $f(z_1, z_2)$. Without loss of generality, suppose that $z_2$ appears in $f(z_1, z_2)$. We may write
+        \[
+            f(z_1, z_2) = \sum_{k=0}^n f_k(z_1) \cdot z_2^k
+        \]
+        where $n \geq 1$ and $f_k(z_1) \in \mathbb{C}[z_1]$. Moreover, $f_n \neq 0$, and thus, $f_n(z_1)$ has only finitely many roots (possibly zero). Thus, there are infinitely many $\alpha \in \mathbb{C}$ such that $f_n(\alpha) \neq 0$. Since, $n \geq 1$, we have that $f(\alpha, z_2) \in \mathbb{C}[z_2]$ is non-constant for all these infinitely many $\alpha$. By FTA, for each such $\alpha$, there exists $\beta \in \mathbb{C}$ such that $f(\alpha, \beta) = 0$. Thus, there are infinitely many roots of $f(z_1, z_2)$ in $\mathbb{C}^2$ (since it contains all these pairs $(\alpha, \beta)$ as $\alpha$ takes on infinitely many values).
+    \end{soln}
+    
+    \item Show that the complex plane minus a countable set is path-connected.
+    
+    \begin{soln}
+        Let $S \subset \mathbb{C}$ be countable. We must show that $\mathbb{C} \setminus S$ is path-connected. Let $z_1, z_2 \in \mathbb{C} \setminus S$ and $z_1 \neq z_2$. Let $f$ be the line segment joining $z_1$ to $z_2$, and let $g$ be the circular arc joining $z_1$ to $z_2$. For every $\lambda \in [0,1]$, we define
+        \[
+            \sigma_{\lambda}(t) \vcentcolon= \lambda f(t) + (1-\lambda)g(t) \quad \forall \, t \in [0,1]
+        \]
+        
+        \begin{blockquote}
+			\textbf{Claim.} \begin{enumerate}
+			    \item $\sigma_{\lambda}$ is a path in $\mathbb{C}$,
+			    \item $\sigma_{\lambda}(0) = z_1$ and $\sigma_{\lambda}(1) = z_2$ for all $\lambda \in [0,1]$, and
+			    \item if $\lambda_1 \neq \lambda_2$ and $t \in (0,1)$, then $\sigma_{\lambda_1}(t) \neq \sigma_{\lambda_2}(t)$.
+			\end{enumerate} 
+			\begin{proof} 
+				We leave the proof for (a) and (b) as simple exercises. To show (c), we first note that for $t \in (0,1)$, $f(t) \neq g(t)$. Now, let $\lambda_1, \lambda_2 \in [0,1]$ with $\lambda_1 \neq \lambda_2$. Suppose $\sigma_{\lambda_1}(t) = \sigma_{\lambda_2}(t)$. We then have
+				\begin{align*}
+				    &\lambda_1 f(t) + (1-\lambda_1) g(t) = \lambda_2 f(t) + (1-\lambda_2) g(t) \\ \implies &(\lambda_1 - \lambda_2) f(t) = (\lambda_1 - \lambda_2) g(t).
+				\end{align*}
+				Since $\lambda_1 \neq \lambda_2$, we get $f(t) = g(t)$, a contradiction. Intuitively, this means that the images of all these paths are disjoint, barring the start and end points. 
+			\end{proof}
+
+		\end{blockquote}
+		
+		Since $[0,1]$ is uncountable (we assume this without proof), and the images are disjoint (by claim (c)), we have that the set $\left\{ \sigma_{\lambda} \mid \lambda \in [0,1] \right\}$ is uncountable. Since the set $S$ is only countable, there exists some $\lambda_0 \in [0,1]$ such that $\sigma_{\lambda_0}(t) \notin S$ for all $t \in [0,1]$. In other words, $\sigma_{\lambda_0}$ is a path in $\mathbb{C} \setminus S$ starting at $z_1$ and ending at $z_2$. Since $z_1,z_2$ were arbitrary, we are done.
+        
+    \end{soln}
+    
+    \item Check for real differentiability and holomorphicity:
+    
+    \begin{enumerate}
+        \item $f(z) = c$
+        \item $f(z) = z$
+        \item $f(z) = z^n$, $n \in \mathbb{Z}$
+        \item $f(z) = \mathfrak{R}z$
+        \item $f(z) = \abs{z}$
+        \item $f(z) = \abs{z}^2$
+        \item $f(z) = \overline{z}$
+        \item $f(z) = \begin{cases}
+            \frac{z}{\overline{z}} & \text{if } z \neq 0 \\
+            0 & \text{if } z = 0
+        \end{cases}$
+    \end{enumerate}
+    \begin{soln} Some of these are trivial and hence omitted.
+    \begin{enumerate}
+        \item Real differentiable and holomorphic.
+        \item Real differentiable and holomorphic.
+        \item For $n \geq 0$, real differentiable and holomorphic. Since holomorphicity implies real differentiability, we only check for holomorphicity. Let $z_0 \in \mathbb{C}$ be arbitrary.  We must check for the existence of the following limit:
+        \[
+            \lim_{z \to z_0} \frac{f(z) - f(z_0)}{z-z_0}.
+        \]
+        For $z \neq z_0$, we know that
+        \[
+            \frac{z^n - z_0^n}{z-z_0} = \sum_{k=0}^{n-1} z^k z_0^{n-1-k}.
+        \]
+        Since the limit of the RHS exists as $z \to z_0$, we are done.
+        
+        \medskip
+        
+        For $n < 0$, the function is defined on $\mathbb{C} \setminus \{0\}$. On $\mathbb{C} \setminus \{0\}$, $f(z)$ is non-zero. Thus, $\frac{1}{f}$ is holomorphic on $\mathbb{C} \setminus \{0\}$ by the first case since $\frac{1}{f(z)} = z^{-n}$ and $-n > 0$. Thus, $f(z)$ is holomorphic on $\mathbb{C} \setminus \{0\}$.
+        
+        \item Real differentiable but not holomorphic. We may write $f$ as
+        \[
+            f(x+\iota y) = x + 0\iota.
+        \]
+        Thus, $u(x,y) = x$ and $v(x,y) = 0$. $f$ is clearly real differentiable since all the partial derivatives exist everywhere and are continuous. However, since $u_x(x_0,y_0) = 1$ and $v_y(x_0,y_0) = 0$ for all $(x_0,y_0) \in \mathbb{R}^2$, the CR equations do not hold. Hence, $f$ is complex differentiable nowhere, and thus, not holomorphic.
+        
+        \item $\abs{z}$ is real differentiable precisely on $\mathbb{C} \setminus \{0\}$ and complex differentiable nowhere. We may write
+        \[
+            f(x+\iota y) = \sqrt{x^2 + y^2} + 0\iota
+        \]
+        giving us $u(x,y) = \sqrt{x^2 + y^2}$, and $v(x,y) = 0$. On $\mathbb{R}^2\setminus\{(0,0)\}$, all partial derivatives exist and are continuous, whereas $u_x$ and $u_y$ fail to exist at $(0,0)$. Thus, $f(z)$ is real differentiable on $\mathbb{C} \setminus \{0\}$. Moreover, this shows that $f(z)$ is not complex differentiable at $0$ since it's not even real differentiable there. Everywhere else, $v_x = v_y = 0$, but at least one of $u_x, u_y$ is non-zero, violating the CR equations. Thus, $f(z)$ is complex differentiable nowhere.
+        
+        \item $\abs{z}^2$ is real differentiable everywhere and complex differentiable precisely at $0$. As a result, it is holomorphic nowhere. As before, we have $u(x,y) = x^2 + y^2$, and $v(x,y) = 0$. Since all partial derivatives exist everywhere and are continuous, $f(z)$ is real differentiable everywhere. Note that
+        \begin{align*}
+            u_x(x,y) = 2x &\quad u_y(x,y) = 2y \\
+            v_x(x,y) = 0 &\quad v_y(x,y) = 0
+        \end{align*}
+        Thus, the CR equations hold precisely at $0$.
+        
+        \item For $f(z) = \overline{z}$, we may write
+        \[
+            f(x+\iota y) = x - \iota y,
+        \]
+        which gives us $u(x,y) = x$ and $v(x,y) = -y$. Since all partials exist everywhere and are continuous, $f(z)$ is real differentiable everywhere. However, note that
+        \begin{align*}
+            u_x(x,y) = 1 &\quad u_y(x,y) = 0 \\
+            v_x(x,y) = 0 &\quad v_y(x,y) = -1
+        \end{align*}
+        Since $u_x(x,y) \neq v_y(x,y)$ for all $(x,y) \in \mathbb{R}^2$, we see that the CR equations do not hold anywhere and $f(z)$ is complex differentiable nowhere.
+        
+        \item $f(z)$ is real differentiable precisely on $\mathbb{C} \setminus \{ 0\}$, and complex differentiable nowhere. We may multiply and divide by $\overline{z}$ to obtain
+        \[
+            u(x,y) = \frac{x^2-y^2}{x^2+y^2} \quad \text{and} \quad v(x,y) = \frac{2xy}{x^2+y^2}
+        \]
+        for $(x,y) \neq (0,0)$, and $u(0,0) = v(0,0) = 0$. Since $u$ and $v$ are not continuous at $(0,0)$ (recall MA109), neither is $f$. Hence, $f$ is neither real differentiable, nor complex differentiable at $0 \in \mathbb{C}$. At all other points, all partials exist and are continuous. Hence, $f$ is real differentiable there. However, one may explicitly compute those partial derivatives and verify that the CR equations hold nowhere. Thus, $f$ is complex differentiable nowhere.
+        
+    \end{enumerate}
+\end{soln}
+\end{enumerate}
+
+
+
+\end{document}
