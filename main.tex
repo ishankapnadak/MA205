@@ -160,7 +160,7 @@
 		\[
 		    f(x) = g(x) h(x)
 		\]
-		for some $h(x) \in \mathbb{C}[x]$. Again, since $f(x)$ and $g(x)$ are both real polynomials, so is $f(x)$. Moreover, since $\deg f(x) \geq 3$ and $\deg g(x) = 2$, we have $\deg h(x) \geq 1$, and we are done.
+		for some $h(x) \in \mathbb{C}[x]$. Again, since $f(x)$ and $g(x)$ are both real polynomials, so is $f=h(x)$. Moreover, since $\deg f(x) \geq 3$ and $\deg g(x) = 2$, we have $\deg h(x) \geq 1$, and we are done. \qedhere
 
     \end{soln}
     
@@ -172,7 +172,7 @@
         \medskip
         
         \begin{blockquote}
-			\textbf{Lemma.} A complex polynomial of degree $n$ has exactly $n$ roots, counted with multiplicity. In particular, all complex polynomials have finitely many roots. 
+			\textbf{Lemma.} A complex polynomial of degree $n$ has exactly $n$ roots, counted with multiplicity. In particular, all nonzero complex polynomials have finitely many roots. 
 			\begin{proof} 
 				Let $f(x) \in \mathbb{C}[x]$ be a polynomial of degree $n$. We prove this via induction on $n$. When $n = 1$, $f(x) = a_0 + a_1x$ for some $a_0,a_1 \in \mathbb{C}$ with $a_1 \neq 0$. We have
 				\begin{align*}
@@ -199,13 +199,13 @@
         \[
             f(z_1, z_2) = \sum_{k=0}^n f_k(z_1) \cdot z_2^k
         \]
-        where $n \geq 1$ and $f_k(z_1) \in \mathbb{C}[z_1]$. Moreover, $f_n \neq 0$, and thus, $f_n(z_1)$ has only finitely many roots (possibly zero). Thus, there are infinitely many $\alpha \in \mathbb{C}$ such that $f_n(\alpha) \neq 0$. Since, $n \geq 1$, we have that $f(\alpha, z_2) \in \mathbb{C}[z_2]$ is non-constant for all these infinitely many $\alpha$. By FTA, for each such $\alpha$, there exists $\beta \in \mathbb{C}$ such that $f(\alpha, \beta) = 0$. Thus, there are infinitely many roots of $f(z_1, z_2)$ in $\mathbb{C}^2$ (since it contains all these pairs $(\alpha, \beta)$ as $\alpha$ takes on infinitely many values).
+        where $n \geq 1$ and $f_k(z_1) \in \mathbb{C}[z_1]$. Moreover, $f_n \neq 0$, and thus, $f_n(z_1)$ has only finitely many roots (possibly zero). Thus, there are infinitely many $\alpha \in \mathbb{C}$ such that $f_n(\alpha) \neq 0$. Since, $n \geq 1$, we have that $f(\alpha, z_2) \in \mathbb{C}[z_2]$ is non-constant for all these infinitely many $\alpha$. By FTA, for each such $\alpha$, there exists $\beta \in \mathbb{C}$ such that $f(\alpha, \beta) = 0$. Thus, there are infinitely many roots of $f(z_1, z_2)$ in $\mathbb{C}^2$ (since it contains all these pairs $(\alpha, \beta)$ as $\alpha$ takes on infinitely many values). \qedhere
     \end{soln}
     
     \item Show that the complex plane minus a countable set is path-connected.
     
     \begin{soln}
-        Let $S \subset \mathbb{C}$ be countable. We must show that $\mathbb{C} \setminus S$ is path-connected. Let $z_1, z_2 \in \mathbb{C} \setminus S$ and $z_1 \neq z_2$. Let $f$ be the line segment joining $z_1$ to $z_2$, and let $g$ be the circular arc joining $z_1$ to $z_2$. For every $\lambda \in [0,1]$, we define
+        Let $S \subset \mathbb{C}$ be countable. We must show that $\mathbb{C} \setminus S$ is path-connected. Let $z_1, z_2 \in \mathbb{C} \setminus S$ and $z_1 \neq z_2$. Let $f$ be the line segment joining $z_1$ to $z_2$, and let $g$ be a semicircular arc joining $z_1$ to $z_2$. For every $\lambda \in [0,1]$, we define
         \[
             \sigma_{\lambda}(t) \vcentcolon= \lambda f(t) + (1-\lambda)g(t) \quad \forall \, t \in [0,1]
         \]
@@ -226,7 +226,7 @@
 
 		\end{blockquote}
 		
-		Since $[0,1]$ is uncountable (we assume this without proof), and the images are disjoint (by claim (c)), we have that the set $\left\{ \sigma_{\lambda} \mid \lambda \in [0,1] \right\}$ is uncountable. Since the set $S$ is only countable, there exists some $\lambda_0 \in [0,1]$ such that $\sigma_{\lambda_0}(t) \notin S$ for all $t \in [0,1]$. In other words, $\sigma_{\lambda_0}$ is a path in $\mathbb{C} \setminus S$ starting at $z_1$ and ending at $z_2$. Since $z_1,z_2$ were arbitrary, we are done.
+		Since $[0,1]$ is uncountable (we assume this without proof), and the images are disjoint (by claim (c)), we have that the set $\left\{ \sigma_{\lambda} \mid \lambda \in [0,1] \right\}$ is uncountable. Since the set $S$ is only countable, there exists some $\lambda_0 \in [0,1]$ such that $\sigma_{\lambda_0}(t) \notin S$ for all $t \in [0,1]$. In other words, $\sigma_{\lambda_0}$ is a path in $\mathbb{C} \setminus S$ starting at $z_1$ and ending at $z_2$. Since $z_1,z_2$ were arbitrary, we are done. \qedhere
         
     \end{soln}
     
@@ -267,7 +267,7 @@
         \[
             f(x+\iota y) = x + 0\iota.
         \]
-        Thus, $u(x,y) = x$ and $v(x,y) = 0$. $f$ is clearly real differentiable since all the partial derivatives exist everywhere and are continuous. However, since $u_x(x_0,y_0) = 1$ and $v_y(x_0,y_0) = 0$ for all $(x_0,y_0) \in \mathbb{R}^2$, the CR equations do not hold. Hence, $f$ is complex differentiable nowhere, and thus, not holomorphic.
+        Thus, $u(x,y) = x$ and $v(x,y) = 0$. $f$ is clearly real differentiable since all the partial derivatives (of $u$ and $v$) exist everywhere and are continuous. However, since $u_x(x_0,y_0) = 1$ and $v_y(x_0,y_0) = 0$ for all $(x_0,y_0) \in \mathbb{R}^2$, the CR equations do not hold. Hence, $f$ is complex differentiable nowhere, and thus, not holomorphic.
         
         \item $\abs{z}$ is real differentiable precisely on $\mathbb{C} \setminus \{0\}$ and complex differentiable nowhere. We may write
         \[
@@ -293,15 +293,546 @@
         \end{align*}
         Since $u_x(x,y) \neq v_y(x,y)$ for all $(x,y) \in \mathbb{R}^2$, we see that the CR equations do not hold anywhere and $f(z)$ is complex differentiable nowhere.
         
-        \item $f(z)$ is real differentiable precisely on $\mathbb{C} \setminus \{ 0\}$, and complex differentiable nowhere. We may multiply and divide by $\overline{z}$ to obtain
+        \item $f$ is real differentiable precisely on $\mathbb{C} \setminus \{ 0\}$, and complex differentiable nowhere. We may multiply and divide by $\overline{z}$ to obtain
         \[
             u(x,y) = \frac{x^2-y^2}{x^2+y^2} \quad \text{and} \quad v(x,y) = \frac{2xy}{x^2+y^2}
         \]
-        for $(x,y) \neq (0,0)$, and $u(0,0) = v(0,0) = 0$. Since $u$ and $v$ are not continuous at $(0,0)$ (recall MA109), neither is $f$. Hence, $f$ is neither real differentiable, nor complex differentiable at $0 \in \mathbb{C}$. At all other points, all partials exist and are continuous. Hence, $f$ is real differentiable there. However, one may explicitly compute those partial derivatives and verify that the CR equations hold nowhere. Thus, $f$ is complex differentiable nowhere.
+        for $(x,y) \neq (0,0)$, and $u(0,0) = v(0,0) = 0$. Since $u$ and $v$ are not continuous at $(0,0)$ (recall MA109), neither is $f$. Hence, $f$ is neither real differentiable, nor complex differentiable at $0 \in \mathbb{C}$. At all other points, all partials exist and are continuous. Hence, $f$ is real differentiable there. However, one may explicitly compute those partial derivatives and verify that the CR equations hold nowhere. Thus, $f$ is complex differentiable nowhere. \qedhere
         
-    \end{enumerate}
+    \end{enumerate} 
 \end{soln}
 \end{enumerate}
+
+\newpage
+
+\section{Week 2}
+\begin{center}
+    10th August, 2021
+\end{center}
+\begin{enumerate}[leftmargin=*]
+    \itemsep0.5em
+    \item If $u(X,Y)$ and $v(X,Y)$ are harmonic conjugates of each other, show that they are constant functions. \textcolor{blue}{(This is true iff $u$ and $v$ are defined on open, path-connected sets)}
+    \begin{soln}
+        Since $v$ is a harmonic conjugate of $u$, we have
+        \[
+            u_X = v_Y \quad \text{and} \quad u_Y = -v_X.
+        \]
+        Since we also have that $u$ is a harmonic conjugate of $v$, we get
+        \[
+            v_X = u_Y \quad \text{and} \quad v_Y = -u_X.
+        \]
+        Note that the above equalities hold for each point in the domain. Thus, we have
+        \[
+            u_X = u_Y = v_X = v_Y \equiv 0, 
+        \]
+        identically. Since the domain is connected, this implies that $u$ and $v$ are constant. 
+        
+        \par\noindent\rule{\textwidth}{0.2pt}
+        
+        The following is another alternative. 
+        
+        \medskip
+        
+        \begin{blockquote}
+            \textbf{Lemma.} Let $u$ be a harmonic function defined on an open, path connected set. Then, the harmonic conjugate of $u$ is unique up to a constant.
+            
+            \begin{proof}
+                Let $v$ and $v^{\prime}$ be two harmonic conjugates of $u$. It suffices to show that $(v-v^{\prime})$ is a constant function. By definition, $u+\iota v$ and $u + \iota v^{\prime}$ are both holomorphic, and hence satisfy the Cauchy-Riemann equations. Thus, we have
+                \[
+                    u_x = v_y, \, v_x = -u_y \quad \text{and} \quad u_x = v^{\prime}_y, \, v^{\prime}_x = -u_y.
+                \]
+                It thus follows that
+                \[
+                    (v-v^{\prime})_x = (v-v^{\prime})_y \equiv 0,
+                \]
+                identically. Since the domain is path-connected, this implies that $(v-v^{\prime})$ is constant. 
+            \end{proof}
+        \end{blockquote}
+        
+        Now, since $v(X,Y)$ is a harmonic conjugate of $u(X,Y)$, we have that $-u(X,Y)$ is a harmonic conjugate of $v(X,Y)$ (Why?). Since we also have that $u(X,Y)$ is a harmonic conjugate of $v(X,Y)$, it follows that $u$ and $-u$ differ only by a constant, and hence $u$ must itself be constant. The same holds for $v$.
+    \end{soln}
+    
+    \item Show that $u = XY - 3X^2Y - Y^3$ is harmonic and find its harmonic conjugate.
+    \begin{soln}
+        Consider the function 
+        \[
+            f(Z) = \frac{1}{2}Z^2 + Z^3,
+        \]
+        defined on $\mathbb{C}$. Writing $Z = X + \iota Y$, where $X,Y \in \mathbb{R}$, we see that the function $u(X,Y)$ is the \emph{imaginary} part of $f(Z)$. Since $f(Z)$ is holomorphic on $\mathbb{C}$, $u$ is harmonic. Moreover, its harmonic conjugate is give by
+        \[
+            v(X,Y) = -\mathfrak{R} f(Z) = \frac{1}{2} (Y^2 - X^2) + 3XY^2 - X^3.
+        \]
+        Note that we require a minus sign since we obtained that $u(X,Y)$ was the imaginary, and not the real, part of a holomorphic function. 
+        \par\noindent\rule{\textwidth}{0.2pt}
+        
+        Note that the above method required us to intelligently guess the function $f(Z)$. However, if this is difficult to observe, we have the following `standard' way of solving this problem. Some simple calculations give us
+        \[
+            u_{XX}(X_0,Y_0) = 6Y_0 \quad \text{and} \quad u_{YY}(X_0, Y_0) = -6Y_0,
+        \]
+        which gives us that $u_{XX} + u_{YY} \equiv 0$, verifying that $u$ is harmonic. Note that $u_X = v_Y$, giving us $v_Y = Y + 6XY$. Integrating with respect to $Y$ gives us
+        \[
+            v = \frac{1}{2} Y^2 + 3XY^2 + g(X)
+        \]
+        for some function $g$. We also have the relation $v_X = -u_Y$. Computing each individually gives us
+        \[
+            3Y^2 + g^{\prime}(X) = -X - 3X^2 + 3Y^2.
+        \]
+        Thus, up to a constant, we get
+        \[
+            g(X) = -\frac{1}{2}X^2 - X^3.
+        \]
+        Finally, we get
+        \[
+            v = \frac{1}{2}Y^2 + 3XY^2 - \frac{1}{2}X^2 - X^3. 
+        \] \qedhere
+    \end{soln}
+    
+    \item Find the radius of convergence of the following power series:
+    \begin{enumerate}
+        \item \( \displaystyle\sum_{n=0}^{\infty} nz^n \),
+        \item \( \displaystyle\sum_{p \text{ prime}} z^p \), 
+        \item \( \displaystyle\sum_{n=0}^{\infty} \frac{n!}{n^n} z^n \).
+    \end{enumerate}
+    \begin{soln}
+    We shall use the ratio test in the first and third parts, and the root test in the second part.
+        \begin{enumerate}
+            \item
+            Note that we have
+			\begin{equation*} 
+			   \alpha = \lim_{n \to \infty}\left|\dfrac{a_{n+1}}{a_n}\right|= \lim_{n \to \infty}\left|\dfrac{n+1}{n}\right|= 1
+			\end{equation*}
+			
+			and thus,
+			\begin{equation*} 
+				R = \alpha^{-1} = 1.
+			\end{equation*}
+            
+            \item We may rewrite the series as
+            \[
+                \sum_{n=1}^{\infty} a_n z^n,
+            \]
+            where
+            \[
+                a_n \vcentcolon= \begin{cases}
+                    0 & n \text{ is not a prime}, \\
+                    1 & n \text{ is a prime.}
+                \end{cases}
+            \]
+            Since there are infinitely many primes, given any $n \in \mathbb{N}$, there exists $m \geq n$ with $a_m = 1$. Thus, we clearly have
+            \[
+                \limsup_{n \to \infty} \sqrt[n]{\abs{a_n}} = 1.
+            \]
+            Thus, the root test gives us
+            \[
+                R = \alpha^{-1} = 1.
+            \]
+            
+            \item We have
+            \[
+                a_n = \frac{n!}{n^n}.
+            \]
+            Thus, 
+            \begin{align*}
+                \alpha = \lim_{n \to \infty} \abs{\frac{a_{n+1}}{a_n}} &= \frac{(n+1)!}{n!} \cdot \frac{n^n}{(n+1)^{n+1}} \\
+                &= \lim_{n \to \infty} \left( 1 + \frac{1}{n} \right)^{-n} \\
+                &= \frac{1}{e}.
+            \end{align*}
+            Since the above limit exists, we may apply the ratio test to get
+            \[
+                R = \alpha^{-1} = e.
+            \] \qedhere
+        \end{enumerate}
+    \end{soln}
+    
+    \item Show that $L > 1$ in the ratio test (Lecture $3$ slides) does not necessarily imply that the series is divergent. 
+    
+    \begin{soln}
+    Consider the sequence $(a_n)$ defined by
+    \[
+        a_{2n} = \frac{1}{n^2} \quad \text{and} \quad a_{2n-1} = \frac{1}{n^3}
+    \]
+    Since $\sum n^{-2}$ and $\sum n^{-3}$ converge (via the integral test), we have that $\sum a_n$ converges. However, note that
+    \[
+        L = \limsup_{n \to \infty} \abs{\frac{a_{n+1}}{a_n}} \geq \limsup_{n \to \infty} \abs{\frac{a_{2n}}{a_{2n-1}}} = \limsup_{n \to \infty} n = \infty.
+    \]
+    Thus $L > 1$ clearly, but the series is convergent. Hence, we have showed that even $L = \infty$ is not sufficient to conclude the divergence of a series. 
+    \end{soln}
+    
+    \item Construct an infinitely differentiable function $f \colon \mathbb{R} \to \mathbb{R}$ which is non-zero but vanishes outside a bounded set. Show that there are no holomorphic functions which satisfy this property. 
+    
+    \begin{soln}
+    We saw in the lectures that the function $g \colon \mathbb{R} \to \mathbb{R}$ defined as
+    \[
+        g(x) = \begin{cases}
+            0 &  x \leq 0, \\
+            e^{-1/x} & x > 0
+        \end{cases}
+    \]
+    is infinitely differentiable. Using this function, we construct $f \colon \mathbb{R} \to \mathbb{R}$ as follows:
+    \[
+        f(x) \vcentcolon= g(x) g(1-x).
+    \]
+    $f$ is clearly infinitely differentiable. Moreover, $f(x) = 0$ if $x \leq 0$ or $x \geq 1$. Thus, $f$ vanishes outside the bounded set $(0,1)$. It remains to show that $f$ is non-zero. Indeed, we have that
+    \[
+        f\left( \frac{1}{2} \right) = \left( g\left( \frac{1}{2} \right) \right)^2 = e^{-4} \neq 0.
+    \]
+    
+    \medskip
+    
+    Suppose $f \colon \mathbb{C} \to \mathbb{C}$ be a holomorphic function which vanishes outside some bounded set $K$. We now show that $f$ is identically zero. For this, recall the Identity Theorem:
+    
+    \begin{thm*}
+    Let $\Omega \subset \mathbb{C}$ be a domain. If $f \colon \Omega \to \mathbb{C}$ is analytic, then either $f$ is identically zero, or the zeros of $f$ form a discrete set.
+    \end{thm*}
+    
+    Although the above theorem is for analytic functions, we shall show later in the course that holomorphic functions are indeed analytic. Since the set $K$ is bounded, there exists $M > 0$ such that 
+    \[
+        \abs{z} \leq M \text{ for all } z \in K.
+    \]
+    Choosing the point $z_0 = M + 2$, we see that $f$ vanishes in a neighbourhood of radius $1$ around $z_0$. Since $\mathbb{C}$ is open and path-connected (and hence a domain), and since any open disc is not discrete, we conclude from the above theorem that $f$ must be identically zero on $\mathbb{C}$.
+    \end{soln}
+    
+    \item Show that $\exp \colon \mathbb{C} \to \mathbb{C}^{\times}$ is onto.
+    
+    \begin{soln}
+    Let $z_0 \in \mathbb{C}^{\times}$. It suffices to show that $\exp(z) = z_0$ for some $z \in \mathbb{C}$. Since $z_0$ is non-zero, $r \vcentcolon= \abs{z_0} \neq 0$. Thus, 
+    \[
+        w \vcentcolon= \frac{z_0}{r}
+    \]
+    has modulus $1$. Thus, 
+    \[
+        w = x_0 + \iota y_0
+    \]
+    for some $(x_0, y_0) \in \mathbb{R}^2$ satisfying $x_0^2 + y_0^2 = 1$. Hence, $x_0 = \cos \theta$ and $y_0 = \sin \theta$ for some $\theta \in [0, 2\pi)$. We now define 
+    \[
+        z \vcentcolon= \log(r) + \iota \theta,
+    \]
+    where the above $\log$ is the real-valued $\log$. Thus, we have
+    \begin{align*}
+        \exp(z) = \exp(\log(r) + \iota \theta) &= \exp(\log(r)) \cdot \exp(\iota \theta) \\
+        &= r \cdot (\cos\theta + \iota \sin \theta) \\
+        &= r \cdot w = z_0.
+    \end{align*}
+    Thus, $\exp \colon \mathbb{C} \to \mathbb{C}^{\times}$ is onto.
+    \end{soln}
+    
+    \item Show that $\sin, \cos \colon \mathbb{C} \to \mathbb{C}$ are surjective. (In particular, note the difference with real sine and real cosine which were bounded by $1$).
+    
+    \begin{soln}
+    We prove that $\cos$ is surjective. A similar method works for $\sin$. Recall that
+    \[
+        \cos(z) = \frac{1}{2} \left( e^{\iota z} + e^{-\iota z} \right).
+    \]  
+    Let $z_0 \in \mathbb{C}$. As before, it suffices to show that $\cos(z) = z_0$ for some $z \in \mathbb{C}$. Consider the quadratic equation
+    \begin{equation*}
+        \frac{1}{2} \left( t + \frac{1}{t} \right) = z_0 \quad \quad (\dag)
+    \end{equation*}
+    Rearranging this gives us
+    \[
+        t^2 - 2z_0t + 1 = 0.
+    \]
+    Since the above is a (non-constant) complex polynomial, it has a complex root $t_0$ (by FTA). Moreover, note that $t_0 \neq 0$. By the previous question, there exists $z^{\prime} \in \mathbb{C}$ satisfying $e^{z^{\prime}} = t_0$. Considering $z = z^{\prime}/\iota$, we see that $e^{\iota z} = t_0$. Plugging $t_0 = e^{\iota z}$ in $(\dag)$ gives us
+    \[
+        \cos(z) = z_0,
+    \]
+    as desired.
+    \end{soln}
+    
+    \item Show that for any complex number $z$, $\cos^2(z) + \sin^2(z) = 1$.
+    
+    \begin{soln}
+    Consider the function $f \colon \mathbb{C} \to \mathbb{C}$ defined as
+    \[
+        f(z) = \cos^2(z) + \sin^2(z) - 1.
+    \]
+    Note that $f$ is holomorphic, and hence analytic. Since $f$ vanishes on $\mathbb{R}$ and $\mathbb{R}$ is not discrete, $f$ must vanish everywhere, by the Identity Theorem.
+    \end{soln}
+\end{enumerate}
+
+\newpage
+
+\section{Week 3}
+
+\begin{center}
+    17th August, 2021
+\end{center}
+\begin{enumerate}[leftmargin=*]
+    \itemsep0.5em
+    \item Show that the Cauchy-Riemann equations take the form 
+    \[
+        u_r = \frac{1}{r} v_{\theta} \text{ and } v_r = -\frac{1}{r} u_{\theta} 
+    \]
+    in polar coordinates.
+    
+    \begin{soln}
+    We use the same method shown in the slides while deriving the (original) Cauchy-Riemann equations. We first write
+		\[
+			f(r, \theta) = f(re^{\iota\theta}) = u(r, \theta) + \iota v(r, \theta).
+		\]
+		Suppose that $f$ is differentiable at $z_0 = r_0e^{\iota\theta_0} \neq 0$. Then, we know that the limit
+		\[
+			\lim_{z\to z_0}\frac{f(z) - f(z_0)}{z - z_0}
+		\]
+		exists. We shall calculate it in two ways:
+		\begin{enumerate}
+			\item Fix $\theta = \theta_0$ and let $r \to r_0.$ Then, we get
+			\begin{align*} 
+				f'(z_0) &= \lim_{r\to r_0}\left\{\dfrac{u(r, \theta_0) - u(r_0, \theta_0)}{e^{\iota\theta_0}(r - r_0)} + \iota\dfrac{v(r, \theta_0) - v(r_0, \theta_0)}{e^{\iota\theta_0}(r - r_0)}\right\}\\~\\
+				&= e^{-\iota\theta_0}\lim_{r\to r_0}\left\{\dfrac{u(r, \theta_0) - u(r_0, \theta_0)}{r - r_0} + \iota\dfrac{v(r, \theta_0) - v(r_0, \theta_0)}{r - r_0}\right\}\\~\\
+				&= e^{-\iota\theta_0}\left(u_r(r_0, \theta_0) + \iota v_r(r_0, \theta_0)\right). & (*)
+			\end{align*}
+
+		\item Fix $r = r_0$ and let $\theta \to \theta_0.$ Then, we get
+		\begin{align*} 
+			f'(z_0) &= \lim_{\theta\to \theta_0}\left\{\dfrac{u(r_0, \theta) - u(r_0, \theta_0)}{r_0(e^{\iota\theta} - e^{\iota\theta_0})} + \iota\dfrac{v(r_0, \theta) - v(r_0, \theta_0)}{r_0(e^{\iota\theta} - e^{\iota\theta_0})}\right\}\\~\\
+			&= \dfrac{1}{r_0}\lim_{\theta\to \theta_0}\left\{\dfrac{u(r_0, \theta) - u(r_0, \theta_0)}{e^{\iota\theta} - e^{\iota\theta_0}} + \iota\dfrac{v(r_0, \theta) - v(r_0, \theta_0)}{e^{\iota\theta} - e^{\iota\theta_0}}\right\} & (**)
+		\end{align*}
+		We concentrate on the first term of the limit. Note that
+		\begin{align*} 
+			&\lim_{\theta\to \theta_0}\dfrac{u(r_0, \theta) - u(r_0, \theta_0)}{e^{\iota\theta} - e^{\iota\theta_0}}\\~\\
+			=& \lim_{\theta\to \theta_0}\dfrac{u(r_0, \theta) - u(r_0, \theta_0)}{\theta - \theta_0}\dfrac{\theta - \theta_0}{e^{\iota\theta} - e^{\iota\theta_0}}.
+		\end{align*}
+		In the product, the first term is clearly $u_\theta(r_0, \theta_0),$ after taking the limit. The second term can be calculated to be
+		\begin{equation*} 
+			\dfrac{1}{\iota e^{\iota\theta_0}}.
+		\end{equation*}
+		(Write $e^{\iota\theta}$ in terms of $\sin$ and $\cos$, differentiate, and put it back.) A similar argument holds for the $v$ term as well.
+		Thus, $(**)$ transforms to
+		\begin{equation*} 
+		f'(z_0) = \dfrac{e^{-\iota\theta_0}}{r_0}\left(-\iota u_\theta(r_0, \theta_0) + v_\theta(r_0, \theta_0)\right).
+		\end{equation*}
+		\end{enumerate}
+		Equating the above with $(*),$ cancelling $e^{-\iota\theta_0},$ and comparing the real and imaginary parts, we get
+		\begin{equation*} 
+			u_r(r_0, \theta_0) = \dfrac{1}{r_0}v_\theta(r_0, \theta_0) \quad \text{ and } \quad v_r(r_0, \theta_0) = -\dfrac{1}{r_0}u_\theta(r_0, \theta_0),
+		\end{equation*}
+		as desired.
+    \end{soln}
+    
+    \item Prove Cauchy's Theorem assuming Cauchy Integral Formula. 
+    
+    \begin{soln}
+    %\medskip
+    %\begin{blockquote}
+        %\textbf{Cauchy Integral Formula.} \\
+        %Let $f$ be holomorphic everywhere on an open set $\Omega$. Let $\gamma$ be a simple closed contour in $\Omega$ such that $\Omega$ contains the interior of $\gamma$. If $z_0$ is interior to $\gamma$, then
+        %\[
+            %f(z_0) = \frac{1}{2\pi\iota} \int_{\gamma} \frac{f(z)}{z-z_0} \, \mathrm{d}z.
+        %\]
+    %\end{blockquote}
+    %\medskip
+    %\begin{blockquote}
+        %\textbf{Cauchy's Theorem.} \\
+        %Let $\gamma$ be a simple closed contour and let $f$ be holomorphic everywhere on an open set containing $\gamma$ and its interior. Then,
+        %\[
+            %\int_{\gamma} f(z) \, \mathrm{d}z = 0.
+        %\]
+    %\end{blockquote}
+    Let $\gamma$ be a simple closed contour (oriented positively) and let $\Omega$ be an open set containing $\gamma$ as well as its interior. Let $f$ be holomorphic everywhere on $\Omega$. Let $z_0$ be interior to $\gamma$. Now, we define 
+    \[
+        g(z) \vcentcolon= (z-z_0) \cdot f(z).
+    \]
+    Since $f$ is holomorphic on $\Omega$, so is $g$. Moreover, $g(z_0) = 0$. Applying the Cauchy Integral Formula to $g$, we have
+    \[
+        g(z_0) = 0 = \frac{1}{2\pi\iota} \int_{\gamma} \frac{g(z)}{z-z_0} \, \mathrm{d}z = \frac{1}{2\pi\iota} \int_{\gamma} \frac{(z-z_0)\cdot f(z)}{z-z_0} \, \mathrm{d}z
+    \]
+    Since $z_0$ is interior to $\gamma$, $z - z_0$ is non-zero on all of $\gamma$. Thus, we get
+    \[
+        \int_{\gamma} f(z) \, \mathrm{d}z = 0,
+    \]
+    which is what Cauchy's Theorem tells us.
+    \end{soln}
+    
+    \item Let $\gamma$ be the boundary of the triangle $\left\{ 0 < y < 1-x; 0 \leq x \leq 1 \right\}$ taken with the anticlockwise orientation. Evaluate 
+    \begin{enumerate}
+        \item $\int_{\gamma} \, \mathfrak{R}(z) \, \mathrm{d}z$,
+        \item $\int_{\gamma} \, z^2 \, \mathrm{d}z$.
+    \end{enumerate}
+    
+    \begin{center}
+		\begin{tikzpicture}
+			\def \len{3};
+			\def \del{0.3};
+			\draw[thick, ->-=at 0.5 with label {$\gamma_1$}](0, 0) -- (\len, 0);
+			\draw[thick, ->-=at 0.5 with label {$\gamma_2$}](\len, 0) -- (0, \len);
+			\draw[thick, ->-=at 0.5 with label {$\gamma_3$}](0, \len) -- (0, 0);
+			\node[] at (-\del, -\del) {$(0, 0)$};
+			\node[] at (\len + \del, -\del) {$(1, 0)$};
+			\node[] at (0, \len + \del) {$(0, 1)$};
+		\end{tikzpicture}
+	\end{center}
+	
+	\begin{soln}
+	\phantom{hi}
+	\begin{enumerate}
+	    \item Note that we may compute the integrals along $\gamma_1, \gamma_2,$ and $\gamma_3$ individually and then add them. Along $\gamma_3$, we have
+	    \[
+	        \int_{\gamma_3}  \mathfrak{R}(z) \, \mathrm{d}z = \int_{\gamma_3} 0 \, \mathrm{d}z = 0.
+	    \]
+	    Along $\gamma_1$, we parameterise the curve as
+	    \[
+	        \gamma_1(t) = t + 0\iota, \quad \text{for } t \in [0,1].
+	    \]
+	    Then, $\gamma_1^{\prime}(t) = 1 + 0\iota$. Thus, 
+	    \begin{align*}
+	        \int_{\gamma_1} \mathfrak{R}(z) \, \mathrm{d}z &= \int_0^1 \mathfrak{R}(\gamma_1(t)) \gamma_1^{\prime}(t) \, \mathrm{d}t \\
+	        &= \int_0^1 t \, \mathrm{d}t \\
+	        &= \frac{1}{2}.
+	    \end{align*}
+	    
+	    Along $\gamma_2$, we parameterise the curve as
+	    \[
+	        \gamma_2(t) = 1-t + \iota t \quad \text{for } t \in [0,1].
+	    \]
+	    Then, $\gamma_2^{\prime}(t) = -1 + \iota$. Thus,
+	    \begin{align*}
+	        \int_{\gamma_2} \mathfrak{R}(z) \, \mathrm{d}z &= \int_0^1 \mathfrak{R}(\gamma_2(t)) \gamma_2^{\prime}(t) \, \mathrm{d}t \\
+	        &= \int_0^1 (1-t)(1-\iota) \, \mathrm{d}t \\
+	        &= \frac{\iota - 1}{2}.
+	    \end{align*}
+	    Thus, 
+	    \[
+	        \int_{\gamma} \mathfrak{R}(z) \, \mathrm{d}z = \int_{\gamma_1} \mathfrak{R}(z) \, \mathrm{d}z + \int_{\gamma_2} \mathfrak{R}(z) \, \mathrm{d}z + \int_{\gamma_3} \mathfrak{R}(z) \, \mathrm{d}z = \boxed{\frac{\iota}{2}}.
+	    \]
+	    
+	    \textbf{Alternate.} Let $\gamma(t) = x(t) + \iota y(t)$ be a parameterisation of the entire curve, where $t \in [a,b]$. We then have
+	    \begin{align*}
+	        \int_{\gamma} \mathfrak{R}(z) \, \mathrm{d}z &= \int_a^b x(t) \cdot (x^{\prime}(t) + \iota y^{\prime}(t) ) \, \mathrm{d}t \\
+	        &= \int_{\gamma} x \, \mathrm{d}x + \iota \int_{\gamma} x \, \mathrm{d}y \\
+	        &= \iint_{\text{Int}(\gamma)} 0 \, \mathrm{d}(x,y) + \iota \iint_{\text{Int}(\gamma)} 1 \, \mathrm{d}(x,y) \\
+	        &= \iota \text{Area}(\gamma) = \boxed{\frac{\iota}{2}}.
+	    \end{align*}
+	    In going from the single integral to the double integral, we have used Green's Theorem.
+	    
+	    \item Note that $z^2$ admits a primitive on $\mathbb{C}$ and $\gamma$ is a closed curve. Thus, 
+	    \[
+	        \int_{\gamma} z^2 \, \mathrm{d}z = \boxed{0}.
+	    \]
+	\end{enumerate}
+	\end{soln}
+	
+	\item Compute $\displaystyle\int_{\abs{z-1}=1} \, \dfrac{2z-1}{z^2-1} \, \mathrm{d}z$. \textcolor{blue}{(Assume that the integral is in the clockwise sense).}
+	
+\begin{soln}
+Note that the contour of integration does not enclose $-1$. Thus, we define $f \colon \mathbb{C} \setminus \{-1\} \to \mathbb{C}$ as
+\[
+    f(z) = \frac{2z-1}{z+1}.
+\]
+Note that $f$ is holomorphic on $\mathbb{C} \setminus \{-1\}$. Moreover, $\gamma$ and its interior lie completely within $\mathbb{C} \setminus \{-1\}$. Thus, using the Cauchy integral formula, we have
+\[
+    2\pi\iota f(1) = \int_{\abs{z-1}=1} \frac{f(z)}{z-1} \, \mathrm{d}z = \int_{\abs{z-1} = 1} \frac{2z-1}{z^2 - 1} \, \mathrm{d}z,
+\]
+which is precisely the integral we wish to calculate. Thus,
+\[
+    \int_{\abs{z-1} = 1} \frac{2z-1}{z^2 - 1} \, \mathrm{d}z = 2\pi\iota f(1) = \boxed{\pi\iota}.
+\]
+\end{soln}
+
+\item Show that if $\gamma$ is a simple closed curve traced counterclockwise, then the integral $\displaystyle\int_{\gamma} \overline{z} \, \mathrm{d}z$ equals $2\iota \text{Area}(\gamma)$. Evaluate $\displaystyle\int_{\gamma} \overline{z}^m \, \mathrm{d}z$ over a circle $\gamma$ centered at the origin.
+
+\begin{soln}
+Suppose $\gamma(t) = x(t) + \iota y(t)$ for $t \in [a,b]$. Then,
+\begin{align*}
+    \int_{\gamma} \overline{z} \, \mathrm{d}z &= \int_a^b \overline{\gamma(t)} \gamma^{\prime}(t) \, \mathrm{d}t \\
+    &= \int_a^b (x(t) - \iota y(t)) (x^{\prime}(t) + \iota y^{\prime}(t)) \, \mathrm{d}t \\
+    &= \int_a^b (x(t)x^{\prime}(t) + y(t)y^{\prime}(t)) \, \mathrm{d}t + \iota \int_a^b (x(t) y^{\prime}(t) - y(t) x^{\prime}(t)) \, \mathrm{d}t \\
+    &= \int_{\gamma} (x \mathrm{d}x + y\mathrm{d}y) + \iota \int_{\gamma} (x \mathrm{d}y - y\mathrm{d}x).
+\end{align*}
+Now, we recall Green's Theorem which said that
+\[
+    \int_{\gamma} (M \mathrm{d}x + N \mathrm{d}y) = \iint_{\text{Int}(\gamma)} \left( \frac{\partial N}{\partial x} - \frac{\partial M}{\partial y} \right) \, \mathrm{d}(x,y)
+\]
+if $\gamma$ is a (nice enough) closed curve oriented counterclockwise. Here, $\text{Int}(\gamma)$ denotes the ``interior'' of $\gamma$. Thus, we have
+\begin{align*}
+    \int_{\gamma} \overline{z} \, \mathrm{d}z &= \iint_{\text{Int}(\gamma)} (0 - 0) \, \mathrm{d}(x,y) + \iota \iint_{\text{Int}(\gamma)} (1 - (-1)) \, \mathrm{d}(x,y) \\
+    &= 2\iota \iint_{\text{Int}(\gamma)} 1 \, \mathrm{d}(x,y) \\
+    &= 2\iota \text{Area}(\gamma).
+\end{align*}
+
+For the second part, we parameterise the circle as
+\[
+    \gamma(t) = re^{\iota t} \quad \text{for } t \in [0,2\pi],
+\]
+where $r > 0$ is arbitrary. We have 
+\[
+    \gamma^{\prime}(t) = \iota r e^{\iota t} = \iota \gamma(t).
+\]
+Thus, 
+\begin{align*}
+    \int_{\gamma} \overline{z}^m \, \mathrm{d}z &= \int_0^{2\pi} \overline{\left( \gamma(t) \right)}^m \cdot \gamma^{\prime}(t) \, \mathrm{d}t \\
+    &= \int_0^{2\pi} \overline{\left( \gamma(t) \right)}^{m-1} \cdot \overline{\gamma(t)} \cdot \gamma^{\prime}(t) \, \mathrm{d}t \\
+    &= \iota \int_0^{2\pi} \overline{\left( \gamma(t) \right)}^{m-1} \cdot \abs{\gamma(t)}^2 \, \mathrm{d}t \\
+    &= \iota r^2 \int_0^{2\pi} r^{m-1} e^{-\iota (m-1)t} \, \mathrm{d}t
+\end{align*}
+The above integral is $0$ whenever $m \neq 1$. When $m=1$, we have
+\[
+    \int_0^{2\pi} 1 \, \mathrm{d}t = 2\pi.
+\]
+Thus, 
+\[
+    \int_{\gamma} \overline{z}^m \, \mathrm{d}z = \begin{cases}
+        2\pi\iota r^2 & m = 1, \\
+        0 & m \neq 1.
+    \end{cases}
+\]
+\end{soln}
+
+\item Let $\mathbb{H} = \left\{ z \in \mathbb{C} \mid \mathfrak{R}(z) > 0 \right\}$ be the (strict) open right half plane. Construct a \textcolor{blue}{non-constant} function $f$ which is holomorphic on $\mathbb{H}$ and satisfies $f\left( \frac{1}{n} \right) = 0$ for all $n \in \mathbb{N}$.
+
+\begin{soln}
+We define 
+\[
+    f(z) \vcentcolon= \sin\left( \frac{\pi}{z} \right).
+\]
+Since $0 \notin \mathbb{H}$, we conclude that $f$ is a composition of holomorphic functions, and hence is holomorphic on $\mathbb{H}$. Moreover, for any $n \in \mathbb{N}$, we have
+\[
+    f\left( \frac{1}{n} \right) = \sin(n\pi) = 0.
+\]
+Lastly, $f$ is non-constant since
+\[
+    f(2) = \sin\left( \frac{\pi}{2} \right) = 1 \neq 0.
+\]
+\end{soln}
+
+\item Let $f$ be a holomorphic function on $\mathbb{C}$ such that $f\left( \frac{1}{n} \right) = 0$ for all $n \in \mathbb{N}$. Show that $f$ is constant.
+
+\begin{soln}
+Note that $f$ is holomorphic and hence continuous. Thus, we have
+\begin{align*}
+    f(0) &= f \left( \lim_{n \to \infty} \frac{1}{n} \right) \\
+    &= \lim_{n \to \infty} f\left( \frac{1}{n} \right) \\
+    &= \lim_{n \to \infty} 0 \\
+    &= 0.
+\end{align*}
+Now, we see that $f$ is zero on
+\[
+    S \vcentcolon= \left\{ 0 \right\} \cup \left\{ \frac{1}{n} \mid n \in \mathbb{N} \right\}.
+\]
+However, $S$ is not discrete. To see this, note that $0 \in S$, and given any $\delta > 0$, there exists $n \in \mathbb{N}$ such that $1/n < \delta$. Thus, for any $\delta > 0$, $B_{\delta}(0) \cap S$ contains a point other than $0$. Now, we use the Identity Theorem to conclude that $f$ is identically zero, and in particular, constant.
+\end{soln}
+
+\item Expand $\dfrac{1+z}{1+2z^2}$ into a power series around $0$. Find the radius of convergence. 
+
+\begin{soln}
+Let $f(z)$ be the expression in the question. We may compute the power by computing $f^{(n)}(0)$. However, if we are able to find a power series by some other method, we may directly use that since power series expansion is unique. Note that
+\[
+    \frac{1}{1+2z^2} = 1 - 2z^2 + (2z^2)^2 - (2z^2)^3 + \cdots
+\]
+for $\abs{2z^2} < 1$ for $\abs{z} < \dfrac{1}{\sqrt{2}}$. Moreover, the above series diverges for $\abs{z} > \dfrac{1}{\sqrt{2}}$. Thus, the power series of $f$ is given by
+\begin{align*}
+    f(z) &= (1+z) \left( 1 - 2z^2 + (2z^2)^2 - (2z^2)^3 + \cdots \right) \\
+    &= (1 - 2z^2 + (2z^2)^2 - (2z^2)^3 + \cdots) + z(1 - 2z^2 + (2z^2)^2 - (2z^2)^3 + \cdots) \\
+    &= 1+z - 2z^2 - 2z^3 + 4z^4 + 4z^5 - 8z^6 - 8z^7  + \cdots
+\end{align*}
+for $\abs{z} < \dfrac{1}{\sqrt{2}}$. Moreover, multiplying with a non-zero finite power series does not change the radius of convergence. Thus, the radius of convergence remains $\boxed{\frac{1}{\sqrt{2}}}$. \\
+More concisely, we have
+\[
+    f(z) = \sum_{n=0}^{\infty} a_n z^n,
+\]
+where $a_n = (-2)^{\lfloor n/2 \rfloor}$.
+\end{soln}
+\end{enumerate}
+
 
 
 
