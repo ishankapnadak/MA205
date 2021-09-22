@@ -133,30 +133,30 @@
         \]
         for some $g(x) \in \mathbb{R}[x]$. (Why must $g$ be a real polynomial?) Also, since $\deg f(x) \geq 3$ and $\deg h(x) = 1$, we have that $\deg g(x) \geq 2$. Thus, $g$ and $h$ are two non-constant real polynomials satisfying $f(x) = g(x) h(x)$.
         
-        Now, suppose that $f(x)$ has no real root. We may also view $f(x)$ as a polynomial in $\mathbb{C}[x]$. By FTA, we know that $f(x)$ has a complex root $x_0 \in \mathbb{C}$. By assumption, we have that $x_0 \notin \mathbb{R}$, and thus $x_0 \neq \overline{x_0}$.
+        Now, suppose that $f(x)$ has no real root. We may also view $f(x)$ as a polynomial in $\mathbb{C}[x]$. By FTA, we know that $f(x)$ has a complex root $x_0 \in \mathbb{C}$. By assumption, we have that $x_0 \notin \mathbb{R}$, and thus $x_0 \neq \overline{x}_0$.
         
         \medskip
         
         \begin{blockquote}
-			\textbf{Claim.} $f(\overline{x_0}) = 0.$
+			\textbf{Claim.} $f(\overline{x}_0) = 0.$
 			\begin{proof} 
 				We have
 				\[\begin{WithArrows}[displaystyle]
-			    f(\overline{x_0}) &= a_0 + a_1\overline{x_0} + \cdots + a_n(\overline{x_0})^n \Arrow{\textcolor{blue}{$\overline{z^n} = \bar{z}^n$}}\\
-					&= a_0 + a_1\overline{x_0} + \cdots + a_n\overline{x_0^n} \Arrow{\textcolor{blue}{$a_i \in \mathbb{R}  \text{ \emph{and thus,} } a_i = \overline{a_i}$}}\\
-					&= \overline{a_0} + \overline{a_1}\;\overline{x_0} + \cdots + \overline{a_n}\overline{x_0^n} \Arrow{\textcolor{blue}{$\overline{z_1z_2 + z_3} = \overline{z_1}\;\overline{z_2} + \overline{z_3}$}}\\
+			    f(\overline{x}_0) &= a_0 + a_1\overline{x}_0 + \cdots + a_n(\overline{x}_0)^n \Arrow{\textcolor{blue}{$\overline{z^n} = \overline{z}^n$}}\\
+					&= a_0 + a_1\overline{x}_0 + \cdots + a_n\overline{x_0^n} \Arrow{\textcolor{blue}{$a_i \in \mathbb{R}  \text{ \emph{and thus,} } a_i = \overline{a_i}$}}\\
+					&= \overline{a_0} + \overline{a_1}\;\overline{x}_0 + \cdots + \overline{a_n}\overline{x_0^n} \Arrow{\textcolor{blue}{$\overline{z_1z_2 + z_3} = \overline{z}_1\;\overline{z}_2 + \overline{z}_3$}}\\
 					&= \overline{f(x_0)}\\
-					&= \bar{0} \\
+					&= \overline{0} \\
 					&= 0.
 			  \end{WithArrows}\]
 			\end{proof}
 		\end{blockquote}
 		
-		Thus, $x_0$ and $\overline{x_0}$ are two distinct roots of $f(x)$. Define $g(x) \vcentcolon= (x-x_0)(x-\overline{x_0})$. A priori, we have $g(x) \in \mathbb{C}[x]$. However, note that
+		Thus, $x_0$ and $\overline{x}_0$ are two distinct roots of $f(x)$. Define $g(x) \vcentcolon= (x-x_0)(x-\overline{x}_0)$. A priori, we have $g(x) \in \mathbb{C}[x]$. However, note that
 		\[
-		    (x-x_0)(x-\overline{x_0}) = x^2 - (2\mathfrak{R}x_0)x + \abs{x_0}^2 \in \mathbb{R}[x].
+		    (x-x_0)(x-\overline{x}_0) = x^2 - (2\mathfrak{R}x_0)x + \abs{x_0}^2 \in \mathbb{R}[x].
 		\]
-		Thus, $g(x)$ is in fact a real polynomial. Since $x_0$ and $\overline{x_0}$ are distinct, we see that $g(x)$ divides $f(x)$ in $\mathbb{C}[x]$. (Why?) Thus,
+		Thus, $g(x)$ is in fact a real polynomial. Since $x_0$ and $\overline{x}_0$ are distinct, we see that $g(x)$ divides $f(x)$ in $\mathbb{C}[x]$. (Why?) Thus,
 		\[
 		    f(x) = g(x) h(x)
 		\]
@@ -695,14 +695,7 @@
 	        \int_{\gamma} \mathfrak{R}(z) \, \mathrm{d}z = \int_{\gamma_1} \mathfrak{R}(z) \, \mathrm{d}z + \int_{\gamma_2} \mathfrak{R}(z) \, \mathrm{d}z + \int_{\gamma_3} \mathfrak{R}(z) \, \mathrm{d}z = \boxed{\frac{\iota}{2}}.
 	    \]
 	    
-	    \textbf{Alternate.} Let $\gamma(t) = x(t) + \iota y(t)$ be a parameterisation of the entire curve, where $t \in [a,b]$. We then have
-	    \begin{align*}
-	        \int_{\gamma} \mathfrak{R}(z) \, \mathrm{d}z &= \int_a^b x(t) \cdot (x^{\prime}(t) + \iota y^{\prime}(t) ) \, \mathrm{d}t \\
-	        &= \int_{\gamma} x \, \mathrm{d}x + \iota \int_{\gamma} x \, \mathrm{d}y \\
-	        &= \iint_{\text{Int}(\gamma)} 0 \, \mathrm{d}(x,y) + \iota \iint_{\text{Int}(\gamma)} 1 \, \mathrm{d}(x,y) \\
-	        &= \iota \text{Area}(\gamma) = \boxed{\frac{\iota}{2}}.
-	    \end{align*}
-	    In going from the single integral to the double integral, we have used Green's Theorem.
+	    
 	    
 	    \item Note that $z^2$ admits a primitive on $\mathbb{C}$ and $\gamma$ is a closed curve. Thus, 
 	    \[
@@ -833,7 +826,779 @@ where $a_n = (-2)^{\lfloor n/2 \rfloor}$.
 \end{soln}
 \end{enumerate}
 
+\par\noindent\rule{\textwidth}{0.4pt}
 
+\textbf{Addendum.}
 
+Since a lot of alternate solutions were discussed, I am adding all of those here.
+
+\begin{enumerate}[leftmargin=*]
+    \itemsep0.5em
+    \item[3a.]\begin{soln}
+Let $\gamma(t) = x(t) + \iota y(t)$ be a parameterisation of the entire curve, where $t \in [a,b]$. We then have
+	    \begin{align*}
+	        \int_{\gamma} \mathfrak{R}(z) \, \mathrm{d}z &= \int_a^b x(t) \cdot (x^{\prime}(t) + \iota y^{\prime}(t) ) \, \mathrm{d}t \\
+	        &= \int_{\gamma} x \, \mathrm{d}x + \iota \int_{\gamma} x \, \mathrm{d}y \\
+	        &= \iint_{\text{Int}(\gamma)} 0 \, \mathrm{d}(x,y) + \iota \iint_{\text{Int}(\gamma)} 1 \, \mathrm{d}(x,y) \\
+	        &= \iota \text{Area}(\gamma) = \boxed{\frac{\iota}{2}}.
+	    \end{align*}
+	    In going from the single integral to the double integral, we have used Green's Theorem.
+\end{soln}
+\item[3a.]
+\begin{soln}
+Note that
+\[
+    \mathfrak{R}(z) = \frac{z+\overline{z}}{2}.
+\]
+Let $\gamma$ be the given curve. We then have
+\[
+    \int_{\gamma} \mathfrak{R}(z) \, \mathrm{d}z = \frac{1}{2} \int_{\gamma} z \, \mathrm{d}z + \frac{1}{2} \int_{\gamma} \overline{z} \, \mathrm{d}z.
+\]
+Note that the first integral is $0$ since $z$ admits a primitive. Moreover, Q5 tells us that the second integral must be $2\iota$ times the area enclosed by the curve (the triangle, in this case), which is just $\frac{1}{2}$. Thus, 
+\[
+    \int_{\gamma} \mathfrak{R}(z) \, \mathrm{d}z = \boxed{\frac{\iota}{2}}.
+\]
+\end{soln}
+
+\item[5] We show another method for the second part. Let the circle $\gamma$ have radius $r > 0$. Notice that over the circle, we have
+\[
+    \overline{z} = \frac{r^2}{z}.
+\]
+Thus, we have
+\[
+    \int_{\gamma} \overline{z}^m \, \mathrm{d}z = \int_{\gamma} r^{2m} z^{-m} \, \mathrm{d}z
+\]
+Moreover, for $m \neq 1$, $z^{-m}$ admits a primitive and hence the integral is zero. For $m = 1$, one may use Cauchy Integral Formula, or simply recognise that the integral reduces to the one already computed in the first part. In either case, we have
+\[
+    \int_{\gamma} \overline{z}^m \, \mathrm{d}z = \begin{cases}
+        2\pi\iota r^2 & m = 1, \\
+        0 & m \neq 1.
+    \end{cases}
+\]
+\end{enumerate}
+
+\newpage
+
+\section{Week 4}
+
+\begin{center}
+    28th August, 2021
+\end{center}
+\begin{enumerate}[leftmargin=*]
+    \itemsep0.5em
+    \item Show that there is a strict inequality
+    \[
+        \abs{\int_{\abs{z} = R} \frac{z^n}{z^m - 1} \, \mathrm{d}z} < \frac{2\pi R^{n+1}}{R^m - 1},
+    \]
+    where $R > 1$, $m \geq 1$, and $n \geq 0$.
+    
+    \begin{soln}
+        We first look at a stronger version of the ML inequality. 
+        
+        \begin{thm}[The Stronger ML Inequality]
+            Let $f \colon \Omega \to \mathbb{C}$ be a continuous function and let $\gamma \colon [a,b] \to \Omega$ be a curve. Let $M > 0$ be such that 
+            \[
+                \abs{f(\gamma(t))} \leq M, \, \text{ for all } t \in [a,b].
+            \]
+            Also, suppose that $\abs{f(\gamma(t))} < M$ for some $t \in [a,b]$. Then,
+            \[
+                \abs{\int_{\gamma} f(z) \, \mathrm{d}z} < ML,
+            \]
+            where $L$ denotes the length of the curve. That is, if $\abs{f} < M$ holds even for one point, the inequality becomes strict.
+        \end{thm}
+        \begin{proof}
+            Note that
+            \[
+                \int_a^b \left[ M - \abs{f(\gamma(t))} \right] \abs{\gamma^{\prime}(t)} \, \mathrm{d}t \geq 0,
+            \]
+            since the integrand is non-negative. Moreover, recall from MA109 that the integral is zero \textbf{iff} the integrand is identically zero. (We use continuity here.) Since we know that the integrand is not identically zero (here we use the fact that $\gamma^{\prime}$ is zero at only finitely many points, if any), it follows that
+            \[
+                \int_a^b \left[ M - \abs{f(\gamma(t))} \right] \abs{\gamma^{\prime}(t)} \, \mathrm{d}t > 0.
+            \]
+            Since
+            \[
+                \int_a^b M \abs{\gamma^{\prime}(t)} \, \mathrm{d}t = ML,
+            \]
+            the theorem follows.
+        \end{proof}
+        
+        Now, we consider the function 
+        \[
+            f(z) = \frac{z^n}{z^m - 1}
+        \]
+        defined on $\Omega \vcentcolon= \left\{ z \in\mathbb{C} \mid \abs{z} > 1 \right\}$. For a point satisfying $\abs{z} = R$, we have
+        \begin{align*}
+            \abs{\frac{z^n}{z^m - 1}} &= \frac{R^n}{\abs{z^m - 1}} \\
+            &\leq \frac{R^n}{\abs{\abs{z}^m - 1}} \\
+            &= \frac{R^n}{R^m - 1}.
+        \end{align*}
+        Thus, we may take $M = \dfrac{R^n}{R^m - 1}$. Also, considering $z = R \exp\left( \frac{\iota\pi}{m} \right)$ shows that the inequality is indeed strict at one point. Thus, we may appeal to \textcolor{red}{The Stronger ML Inequality} to conclude that
+        \begin{align*}
+            \abs{\int_{\abs{z} = R} \frac{z^n}{z^m - 1} \, \mathrm{d}z} &\leq \int_{\abs{z} = R} \abs{\frac{z^n}{z^m - 1}} \, \mathrm{d}z \\
+            &< M(2\pi R) \\
+            &= \frac{2\pi R^{n+1}}{R^m - 1}. \qedhere
+        \end{align*}
+    \end{soln}
+    
+    \item A power series with center at the origin and positive radius of convergence has a sum $f(z)$. It is known that $f(\overline{z}) = \overline{f(z)}$ for all values $z$ within the disc of convergence. What conclusions can you draw about the power series?
+    
+    \begin{soln}
+        Conclusion: All the coefficients of the power series are real. We now justify this.
+        
+        We show that $f^{(k)}(0)$ is real for all $k \in \mathbb{N} \cup \{0\}$. This suffices since we know that the coefficients are given by $f^{(k)}(0)/k!$. In what follows, we assume that $x$ and $x_0$ are real, and within the (open) disc of convergence. For real $x$, we have
+        \[
+            f(x) = f(\overline{x}) = \overline{f(x)}.
+        \]
+        That is, $f(x)$ is real whenever $x$ is real. We now wish to show that $f^{(k)}(x)$ is real for real $x$ for all $k \geq 1$. It suffices to show this for $f^{\prime}$. (Induction!) Since we know that $f^{\prime}$ exists within the disc, we may compute the limit along the real axis. Fix a real $x_0$ within the disc. We note that
+        \[
+            f^{\prime}(x_0) = \lim_{\substack{x\to x_0 \\ x \in \mathbb{R}}} \frac{f(x) - f(x_0)}{x - x_0}.
+        \]
+        Since the above expression is a quotient of two purely real expressions, we see that the limit is real. Thus, we are done. Note that we knew beforehand that all the higher derivatives of $f$ do exist. Hence, we can apply the inductive process by computing the limit along the real axis each time.
+    \end{soln}
+    
+    \item The following is called the Taylor series with remainder.
+    \[
+        f(z) = f(0) + zf^{\prime}(0) + \frac{z^2}{2!} f^{\prime\prime}(0) + \cdots + \frac{z^N}{N!} f^{N}(0) + \frac{z^{N+1}}{(N+1)!} \int_0^1 (1-t)^N f^{N+1}(tz) \, \mathrm{d}t.
+    \]
+    Use this to prove the following inequalities. 
+    \begin{enumerate}
+        \item $\displaystyle\abs{e^z - \sum_{n=0}^N \frac{z^n}{n!}} \leq \frac{\abs{z}^{N+1}}{(N+1)!}$ where $\mathfrak{R}(z) \leq 0$. 
+        
+        \item $\displaystyle\abs{\cos(z) - \sum_{i=0}^N \frac{(-1)^iz^{2i}}{2i!}} \leq \frac{\abs{z}^{2N+2} \cosh{R}}{(2N+2)!}$ where $\abs{\mathfrak{I}(z)} \leq R$.
+    \end{enumerate}
+    
+    \begin{soln} \phantom{hi}
+        \begin{enumerate}
+            \item Note that the sum subtracted is the first $N+1$ terms of the Taylor expansion of $e^z$. Thus, the quantity within the modulus is simply
+            \[
+                \frac{z^{N+1}}{(N+1)!} \int_0^1 (1-t)^N \exp(tz) \, \mathrm{d}t.
+            \]  
+            We have used the fact that $\exp^{(N+1)} = \exp$. Also, we have $\abs{\exp(z)} = \exp(\mathfrak{R}(z))$. Thus, we get
+            \begin{align*}
+                \abs{\int_0^1 (1-t)^N \exp(tz) \, \mathrm{d}t} &\leq \int_0^1 \abs{(1-t)^N \exp(tz)} \, \mathrm{d}t \\
+                &= \int_0^1 (1-t)^N \exp(t\mathfrak{R}(z)) \, \mathrm{d}t \\
+                &\leq \int_0^1 (1-t)^N \, \mathrm{d}t \\
+                &= \frac{1}{N+1}.
+            \end{align*}
+            
+            Thus, we have
+            \begin{align*}
+                \abs{e^z - \sum_{n=0}^N \frac{z^n}{n!}} &= \abs{\frac{z^{N+1}}{(N+1)!} \int_0^1 (1-t)^N \exp(tz) \, \mathrm{d}t} \\
+                &\leq \frac{\abs{z}^{N+1}}{(N+1)!} \frac{1}{N+1} \\
+                &\leq \frac{\abs{z}^{N+1}}{(N+1)!}.
+            \end{align*}
+            
+            \item Note that the sum subtracted is the first $2N+2$ terms of the Taylor expansion of $\cos(z)$. Thus, the quantity within the modulus is simply
+            \[
+                \frac{z^{2N+2}}{(2N+2)!} \int_0^1 (1-t)^{2N+1} \cos^{(2n+2)}(tz) \, \mathrm{d}t.
+            \]
+            Also, we have
+            \begin{align*}
+                \abs{\cos(z)} &= \frac{1}{2} \abs{e^{\iota z} + e^{-\iota z}} \\
+                &\leq \frac{1}{2} \left( \abs{e^{\iota z}} + \abs{e^{-\iota z}} \right) \\
+                &= \frac{1}{2} \left( e^{y} + e^{-y} \right) \\
+                &= \cosh y.
+            \end{align*}
+            Since $\cos^{(2N+2)} = \cos$ or $-\cos$, we have in either case that
+            \[
+                \abs{\cos^{(2N+2)}(tz)} \leq \abs{\cosh ty}.
+            \]
+            Note that $\cosh y$ is an increasing function of $\abs{y}$ (for real $y$.) Thus, we have
+            \[
+                \abs{\cosh ty} \leq \abs{\cosh y}
+            \]
+            for all $t \in [0,1]$. Moreover, since $\abs{y} \leq R$, we have
+            \[
+                \abs{\cosh ty} \leq \abs{\cosh y} \leq \cosh R
+            \]
+            for all $t \in [0,1]$. Thus, we have
+            \begin{align*}
+                \abs{\int_0^1 (1-t)^{2N+1} \cos^{(2n+2)}(tz) \, \mathrm{d}t} &\leq \int_0^1 (1-t)^{2N+1} \abs{\cos^{(2n+2)}(tz)} \, \mathrm{d}t \\
+                &\leq \int_0^1 (1-t)^{2N+1} \cosh R \, \mathrm{d}t \\
+                &= \frac{\cosh R}{2N+2}.
+            \end{align*}
+            As before, the desired inequality follows. \qedhere
+        \end{enumerate}
+    \end{soln}
+    
+    \item By computing $\displaystyle\int_{\abs{z}=1} \left( z + \frac{1}{z} \right)^{2n} \frac{1}{z}\, \mathrm{d}z$, show that $\displaystyle\int_0^{2\pi} \cos^{2n}\theta \, \mathrm{d}\theta = \frac{2\pi}{4^n} \cdot \frac{(2n)!}{(n!)^2}$.
+    
+    \begin{soln}
+        We have the following ``generalised'' Cauchy integral formula, which states that
+        \[
+            \int_{\abs{w-z_0}=r} \frac{f(w)}{(w-z_0)^{n+1}} \, \mathrm{d}w = \frac{2\pi\iota}{n!} f^{(n)}(z_0)
+        \]
+        where $f$ is a function that is holomorphic on an open disc $B_R(z_0)$ and $r < R$. In this question, we take $z_0 = 0$, and $r =1$. We take 
+        \[
+            f(z) = (z^2 + 1)^{2n}
+        \]
+        which is holomorphic on all of $\mathbb{C}$. (We may thus take $R = 2$.) Using the above formula gives us
+        \begin{align*}
+            \int_{\abs{z}=1} \left( z + \frac{1}{z} \right)^{2n} \frac{1}{z}\, \mathrm{d}z &= \int_{\abs{z}=1} \frac{(z^2+1)^{2n}}{z^{2n+1}} \, \mathrm{d}z \\
+            &= \frac{2\pi\iota}{(2n)!} f^{(2n)}(0).
+        \end{align*}
+        We now wish to compute $f^{(2n)}(0)$. We know that $f^{(2n)}(0)/(2n)!$ is precisely the coefficient of $z^{2n}$ in the expansion of $(z^2+1)^{2n}$. We use binomial expansion to see that
+        \[
+            (z^2 + 1)^{2n} = \sum_{k=0}^{2n} \binom{2n}{n} z^{2k}.
+        \]
+        Thus, the coefficient of $z^{2n}$ is $\displaystyle\binom{2n}{n}$ and the integral becomes 
+        \[
+            \int_{\abs{z}=1} \left( z + \frac{1}{z} \right)^{2n} \frac{1}{z}\, \mathrm{d}z = 2\pi\iota \binom{2n}{n}.
+        \]
+        Now, we use the standard parameterisation $z(t) = e^{\iota t}$ for $t \in [0,2\pi]$. The integral then becomes
+        \begin{align*}
+            \int_{\abs{z}=1} \left( z + \frac{1}{z} \right)^{2n} \frac{1}{z}\, \mathrm{d}z &= \int_0^{2\pi} (2\cos t)^{2n} \frac{1}{e^{\iota t}} \iota e^{\iota t} \, \mathrm{d}t \\
+            &= 4^n \iota \int_0^{2\pi} \cos^{2n}t \, \mathrm{d}t.
+        \end{align*}
+        Equating the two gives us the desired result. 
+    \end{soln}
+    
+    \item Let $f(z)$ be an entire function. Show that $f(z)$ is a polynomial of degree at most $n$ if and only if there exists a positive real constant $C$ such that $\abs{f(z)} \leq C\abs{z}^n$ for all $z$ with $\abs{z}$ sufficiently large.
+
+    
+    \begin{soln}
+    Let $f$ be an entire function satisfying $\abs{f(z)} \leq C\abs{z}^n$ for some positive constant $C$ and all $z$ with $\abs{z} > R_0$. We note that $\abs{f}$ is bounded on the set $\left\{ z \in \mathbb{C} \mid \abs{z} \leq R_0 \right\}$ since $f$ is continuous and the latter set is compact. Let $M$ be a bound on $\abs{f}$ on this set. Pick $R > 0$. On $B_R(0)$, we then have
+    \[
+        \abs{f(z)} \leq \max\left\{ M, CR^n \right\} \leq M + CR^n.
+    \]  
+    Now, for $m > n$, Cauchy's estimate gives us
+        \[
+            \abs{f^{(m)}(0)} \leq \frac{m! \cdot (M + CR^n)}{R^m}.
+        \]
+        Since the above holds for arbitrary $R > 0$, we may let $R \to \infty$. Since $m > n$, we see that $f^{(m)}(0) = 0$ for all $m > n$. Now, since $f$ is entire we may write
+        \[
+            f(z) = \sum_{k=0}^{\infty} \frac{f^{(k)}(0)}{k!} z^k = \sum_{k=0}^n \frac{f^{(k)}(0)}{k!} z^k,
+        \]
+        for all $z \in \mathbb{C}$. Hence, $f$ is a polynomial of degree at most $n$.
+        
+        \medskip
+        
+        Conversely, suppose $f(z) = a_0 + a_1 z + \cdots + a_nz^n$ is a polynomial of degree at most $n$. Note that
+        \[
+            \frac{f(z)}{z^n} \to a_n \text{ as } z \to \infty.
+        \]
+        Thus, there must exist $R > 0$ such that for all $z$ with $\abs{z} > R$, we have
+        \[
+            \abs{\frac{f(z)}{z^n}} \leq \abs{a_n} + 1.
+        \]
+        Thus, $C \vcentcolon= \abs{a_n} + 1$ works.
+\end{soln}
+    
+    \item Let $f$ and $g$ be entire, non-vanishing functions with $\displaystyle\left( \frac{f^{\prime}}{f} \right) \left( \frac{1}{n} \right) = \left( \frac{g^{\prime}}{g} \right) \left( \frac{1}{n} \right) = 0$ for all $n \in \mathbb{N}$. Show that $g$ is a non-zero scalar multiple of $f$.
+    
+    \begin{soln}
+        We define 
+        \[
+            h \vcentcolon= \frac{g}{f}.
+        \]
+        Since $f$ is non-vanishing, $h$ is defined on all of $\mathbb{C}$. We also note that $h$ is non-vanishing since $g$ is non-vanishing. Moreover, $h$ is entire since $f$ and $g$ are entire. Now, we have
+        \[
+            \frac{h^{\prime}}{h} = \frac{g^{\prime}f - gf^{\prime}}{gf} = \frac{g^{\prime}}{g} - \frac{f^{\prime}}{f}.
+        \]
+        Thus, we see that
+        \[
+            \left(\frac{h^{\prime}}{h}\right) \left( \frac{1}{n} \right) = 0 \text{ for all } n \in \mathbb{N}.
+        \]
+        Since $h$ is non-vanishing, we get
+        \[
+           h^{\prime} \left( \frac{1}{n} \right) = 0 \text{ for all } n \in \mathbb{N}.
+        \]
+        Utilising the result from Question 7, Week 3, we conclude that $h^{\prime} \equiv 0$. Since $\mathbb{C}$ is path-connected, $h$ is a constant, say $c$. We thus have
+        \[
+            \frac{g}{f} = c \implies g = c \cdot f.
+        \]
+        Moreover, $c \neq 0$ since $g$ is non-vanishing.
+    \end{soln}
+\end{enumerate}
+
+\newpage
+
+\section{Week 5}
+
+\begin{center}
+    31st August, 2021
+\end{center}
+\begin{enumerate}[leftmargin=*]
+    \itemsep0.5em
+    \item Locate and classify the singularities of the following:
+    
+    \begin{enumerate}
+        \item $\displaystyle\frac{\sin(1/z)}{1+z^4}$,
+        \item $\displaystyle\frac{z^5\sin(1/z)}{1+z^4}$,
+        \item $\displaystyle\frac{1}{\sin(1/z)}$,
+        \item $\displaystyle e^{\frac{1}{z}}$.
+    \end{enumerate}
+    
+    \begin{soln} \phantom{hi}
+        \begin{enumerate}
+            \item Note that the numerator is not defined when $z = 0$ and the denominator is not defined whenever $z^4 + 1 = 0$. Thus, the set of singularities is
+        \[
+            S = \left\{ 0,  \frac{1}{\sqrt{2}}(\pm1\pm \iota) \right\}.
+        \]
+        Since there are only finitely many singularities, each of them is isolated. If $z_0 \in S \setminus \{0\}$, it is easy to see that 
+        \[
+            \lim_{z \to z_0} \frac{1}{f(z)} = 0.
+        \]  
+        Thus, all non-zero singularities are poles. Now, we show that $z=0$ is an \emph{essential singularity}. That is, it is neither removable nor a pole. It suffices to show that $\displaystyle\lim_{z \to 0} f(z)$ does not exist, neither as a finite complex number, nor as $\infty$. 
+        
+        Approaching $0$ along the positive imaginary axis, we have
+        \begin{align*}
+            \lim_{y \to 0^+} f(z) &= \lim_{y \to 0^+} \frac{\sin(1/\iota y)}{1 + (\iota y)^4} \\
+            &= \frac{1}{2} \lim_{y \to 0^+} (e^{1/y} - e^{-1/y}).
+        \end{align*}
+        Note that the above limit exists as $\infty$, so $0$ is not a removable singularity. Approaching along the real axis, we have that $\sin$ is bounded and the denominator tends to $1$, so $0$ is not a pole either.
+        
+        \item This follows the same approach as the first one. All the singularities (and their types) remain the same.
+        
+        \item Here, we have a problem if $z = 0$ or $\sin(1/z) = 0$. Thus, the set of singularities is given by
+        \[
+            S = \{0\} \cup \left\{ \frac{1}{n\pi} \mid n \in \mathbb{Z} \setminus \{0\} \right\}.
+        \]
+        Note that $0$ is not an isolated singularity since every neighbourhood of $0$ contains some point of the form $1/(n\pi)$. We thus do not classify $0$. All other singularities, however, are isolated. To see this, let $z_0 \in S \setminus \{0\}$. Then, \[
+            z_0 = \frac{1}{n\pi}
+        \]
+        for some $n \in \mathbb{Z} \setminus \{0\}$. Now, choose
+        \[
+            \delta \vcentcolon= \min \left\{ \abs{\frac{1}{n\pi} - \frac{1}{(n+1)\pi}} , \abs{\frac{1}{n\pi} - \frac{1}{(n-1)\pi}}\right\}.
+        \]
+        (If $n = \pm 1$, then just choose the other value). For the above choice of $\delta$, the punctured neighbourhood $B_{\delta}(z_0) \setminus \{z_0\}$ contains no other point of $S$.
+        
+        Now, we show that all of these isolated singularities are poles. To see this, we note that
+        \[
+            \lim_{z \to z_0} \frac{z-z_0}{\sin(1/z)}
+        \]
+        exists (as a finite number) and is nonzero for any $z_0 \in S \setminus \{0\}$. Thus, all these points are poles.
+        
+        \item The only problematic point here is $0$. We show that $0$ is an essential singularity. Note that as $z \to 0$ along the negative real axis, we have that $e^{1/z} \to 0$. However, as $z \to 0$ along the positive real axis, we have $e^{1/z} \to \infty$. Thus, $\displaystyle\lim_{z \to 0} e^{1/z}$ does not exist, neither as a finite complex number, nor as $\infty$. 
+        \end{enumerate}
+        
+    \end{soln}
+    
+    \item Construct a meromorphic function on $\mathbb{C}$ with infinitely many poles.
+    
+    \begin{soln}
+        We define $f \colon \mathbb{C} \setminus \{n\pi \mid n \in \mathbb{Z}\} \to \mathbb{C}$ as
+        \[
+            f(z) \vcentcolon= \frac{1}{\sin z}.
+        \]
+        It is easy to note that $f$ has infinitely many singularities, which are given precisely by the set $S \vcentcolon= \{n\pi \mid n \in \mathbb{Z}\}$, and all these are isolated. Moreover, for each $z_0 \in S$, we have
+        \[
+            \lim_{z \to z_0}\frac{1}{f(z)} = \lim_{z \to z_0} \sin z = 0.
+        \]
+        Thus, all the singularities are also poles. Hence, $f$ is meromorphic on $\mathbb{C}$ with infinitely many poles. 
+    \end{soln}
+    
+    \item Find Laurent expansions for the function $\displaystyle f(z) = \frac{2(z-1)}{z^2-2z-3}$ valid on the annuli
+    \begin{enumerate}
+        \item $0 \leq \abs{z} < 1$,
+        \item $1 < \abs{z} < 3$,
+        \item $3 < \abs{z}$.
+    \end{enumerate}
+    
+    \begin{soln}
+        Note that 
+        \[
+            \frac{2(z-1)}{z^2 - 2z - 3} = \frac{1}{z-3} + \frac{1}{z+1}.
+        \]
+        In each part, we expand each fraction as a Laurent series such that the series converges on that particular disc. 
+        
+        \begin{enumerate}
+            \item Here, we may write
+            \[
+                \frac{1}{z-3} = -\frac{1}{3}\frac{1}{1-\frac{z}{3}} = -\frac{1}{3} \sum_{n=0}^{\infty} \left( \frac{z}{3} \right)^n,
+            \]
+            and
+            \[
+                \frac{1}{z+1} = \sum_{n=0}^{\infty} (-z)^n.
+            \]
+            Thus, the Laurent series in the annulus $\abs{z} < 1$ is given as the sum of the above two.
+            
+            \item Here, we may write
+            \[
+                \frac{1}{z-3} = -\frac{1}{3}\frac{1}{1-\frac{z}{3}} = -\frac{1}{3} \sum_{n=0}^{\infty} \left( \frac{z}{3} \right)^n,
+            \]
+            and
+            \[
+                \frac{1}{z+1} = \frac{1}{z\left( 1 + \frac{1}{z} \right)} = \sum_{n=0}^{\infty} (-z)^{-n-1}.
+            \]
+            Thus, the Laurent series in the annulus $1 < \abs{z} < 3$ is given as the sum of the above two.
+            
+            \item Here, we may write
+            \[
+                \frac{1}{z-3} = \frac{1}{z}\frac{1}{1-\frac{3}{z}} = \frac{1}{z}\sum_{n=0}^{\infty} \left( \frac{z}{3} \right)^{-n},
+            \]
+            and
+            \[
+                \frac{1}{z+1} = \frac{1}{z\left( 1 + \frac{1}{z} \right)} = \sum_{n=0}^{\infty} (-z)^{-n-1}.
+            \]
+            Thus, the Laurent series in the annulus $1 < \abs{z} < 3$ is given as the sum of the above two.
+        \end{enumerate}
+    \end{soln}
+    
+    \item Let $\Omega$ be a domain in $\mathbb{C}$ and let $z_0 \in \Omega$. Suppose that $z_0$ is an isolated singularity of $f(z)$ and $f(z)$ is bounded in some punctured neighbourhood of $z_0$. Show that $f(z)$ has a removable singularity at $z_0$. 
+    
+    \begin{soln}
+        Fix $\delta > 0$ such that $f$ is bounded and holomorphic on the punctured disc of radius $\delta$ centered at $z_0$. (such a $\delta$ exists since $z_0$ is an isolated singularity.) Define $g(z) \vcentcolon= f(z)(z-z_0)$ on this punctured disc. Then, $g$ is holomorphic on this punctured disc. Moreover, we have
+    \[
+        \lim_{z \to z_0} g(z) = 0
+    \]
+    since $f$ is bounded on the punctured disc. Thus, by RRST, we see that $z_0$ is a removable singularity of $g$. Furthermore, defining $g(z_0) \vcentcolon= 0$ makes it holomorphic on $B_{\delta}(z_0)$. (This again follows from RRST.) Thus we may expand $g$ on $B_{\delta}(z_0)$ as
+    \[
+        g(z) = a_1(z-z_0) + a_2(z-z_0)^2 + \cdots.
+    \]
+    Thus, for $z \in B_{\delta}(z_0) \setminus \{z_0\}$, we have that
+    \[
+        f(z) = a_1 + a_2(z-z_0) + \cdots.
+    \]
+    Thus, $z_0$ is a removable singularity of $f$ since defining $f(z_0) \vcentcolon= a_1$ makes it holomorphic on $B_{\delta}(z_0)$.
+    \end{soln}
+    
+    \item A complex-valued function $f(z)$ on $\mathbb{C}$ is called doubly periodic if there exist linearly independent vectors $v,w \in \mathbb{C}$ \textcolor{blue}{over $\mathbb{R}$} such that $f(z+v) = f(z)$ and $f(z+w) = f(z)$ for all $z \in \mathbb{C}$. Show that any doubly periodic entire function is constant. 
+
+    \begin{soln}
+        Suppose $f$ is doubly periodic and entire. It is easy to see that for all $z \in \mathbb{C}$, we have
+        \[
+            f(z + nv) = f(z) = f(z + mw) \quad \text{for all } m,n \in \mathbb{Z}.
+        \]
+        Since $v$ and $w$ are linearly independent over $\mathbb{R}$, we have that every $z \in \mathbb{C}$ can be uniquely written as $z = xv + yw$ where $x,y \in \mathbb{R}$. Let $\{x\}$ denote the fractional part of $x$ and let $[x]$ denote its integer part. We then have
+        \begin{align*}
+            f(z) &= f(xv + yw) \\
+            &= f([x]v + \{x\}v + [y]w + \{y\}w) \\
+            &= f(\{x\}v + \{y\}w).
+        \end{align*}
+        Now, let $S \vcentcolon= \left\{ xv + yw \mid x,y \in [0,1] \right\}$ denote the parallelogram with vertices $0,v,w,$ and $v+w$. We note that $\{x\}v + \{y\}w \in S$ for all $x,y \in \mathbb{R}$. Hence, the set of values $f$ takes is decided entirely by the set of values it takes on $S$. Since $S$ is compact and $f$ is continuous, $f$ must be bounded on $S$, and thus bounded on all of $\mathbb{C}$. By Liouville's Theorem, we conclude that $f$ is constant.
+    \end{soln}
+    
+    \item By transforming into an integral over the unit circle, show that
+    \[
+        \int_0^{2\pi} \frac{1}{a^2 + 1 - 2a\cos\theta} \, \mathrm{d}\theta = -\frac{2\pi}{1-a^2},
+    \]
+    where $a > 1$. Also compute the value for $a < 1$.
+    
+    \begin{soln}
+        Assuming $0 < a \neq 1$, we have
+        \begin{align*}
+            \int_0^{2\pi} \frac{1}{a^2 - 2a\cos\theta + 1} \, \mathrm{d}\theta &= \int_0^{2\pi} \frac{1}{a^2 - a(e^{-\iota\theta} + e^{\iota\theta}) + e^{-\iota\theta}\cdot e^{\iota\theta}} \, \mathrm{d}\theta \\
+            &= \int_0^{2\pi} \frac{1}{(a-e^{\iota\theta})(a-e^{-\iota\theta})} \, \mathrm{d}\theta \\
+            &= \int_0^{2\pi} \frac{e^{\iota\theta}}{(a-e^{\iota\theta})(ae^{\iota\theta}-1)} \, \mathrm{d}\theta \\
+            &= \frac{1}{\iota} \int_0^{2\pi} \frac{\iota e^{\iota\theta}}{(a-e^{\iota\theta})(ae^{\iota\theta}-1)} \, \mathrm{d}\theta \\
+            &= \frac{1}{\iota} \int_{\lvert z \rvert = 1} \frac{1}{(a-z)(az-1)} \, \mathrm{d}z \\
+            &= -\frac{1}{a\iota} \int_{\lvert z \rvert = 1} \frac{1}{(z-a)(z-1/a)} \, \mathrm{d}z.
+        \end{align*}
+    
+    
+    Note that for both cases $a > 1$ and $a < 1$, the integrand has exactly one pole within the unit circle. For $a > 1$, the pole is at $1/a$. Using Cauchy's Integral Formula, we get
+    \begin{align*}
+        \int_0^{2\pi} \frac{1}{a^2 - 2a\cos\theta + 1} \, \mathrm{d}\theta &= -\frac{1}{a\iota} \cdot 2\pi\iota \frac{1}{1/a - a} \\
+        &= -\frac{2\pi}{1-a^2}.
+    \end{align*}
+    
+    For $a < 1$, the pole is at $a$, which gives us
+    \begin{align*}
+        \int_0^{2\pi} \frac{1}{a^2 - 2a\cos\theta + 1} \, \mathrm{d}\theta &= -\frac{1}{a\iota} \cdot 2\pi\iota \frac{1}{a-1/a} \\
+        &= -\frac{2\pi}{a^2 - 1} \qedhere
+    \end{align*}
+    
+    \end{soln}
+    
+    \item Show that if $a_1, \ldots, a_n$ are the distinct roots of a monic polynomial $P(z)$ of degree $n$, then for each $1 \leq k \leq n$, we have the formula
+    \[
+        \prod_{j \neq k} (a_k - a_j) = P^{\prime}(a_k).
+    \]
+    
+    \begin{soln}
+        Since $P(z)$ is monic and we know all its factors, we may write
+        \[
+            P(z) = (z-a_1)\cdots (z-a_n).
+        \]  
+        Fix $k \in \{1,\ldots,n\}$. Note also that $P(a_k) = 0$. Thus, we may write
+        \[
+            P(z) - P(a_k) = (z-a_1)\cdots(z-a_n).
+        \]
+        If $z \neq a_k$, we may divide by $z-a_k$ to get
+        \[
+            \frac{P(z) - P(a_k)}{z-a_k} = \prod_{j \neq k} (z-a_j).
+        \]
+        Letting $z \to a_k$ gives us the answer.
+    \end{soln}
+    
+    \begin{soln}
+        Alternatively, we may write
+        \[
+            P(z) = (z-a_k) P_k(z)
+        \]
+        where
+        \[
+            P_k(z) \vcentcolon= \prod_{j \neq k} (z-a_j).
+        \]
+        Differentiating both sides using the product rule, we get
+        \[
+            P^{\prime}(z) = (z-a_k) P_k^{\prime}(z) + P_k(z).
+        \]
+        Substituting $z = a_k$ gives us the desired result.
+    \end{soln}
+\end{enumerate}
+
+\newpage
+
+\section{Week 6}
+
+\begin{center}
+    7th September, 2021
+\end{center}
+\begin{enumerate}[leftmargin=*]
+    \itemsep0.5em
+    \item Evaluate $\displaystyle \int_0^{2\pi} \frac{\cos^2(3x)}{5-4\cos(2x)} \, \mathrm{d}x$.
+    
+    \begin{soln}
+        We solve this by converting the integral to an integral over the unit circle. Note that $2\cos(n\theta) = z^n + z^{-n}$ for $z = e^{\iota\theta}$. We use this to manipulate the integral as follows.
+        
+        \begin{align*}
+             \int_0^{2\pi} \frac{\cos^2(3\theta)}{5-4\cos(2\theta)} \, \mathrm{d}\theta &= \frac{1}{4} \int_0^{2\pi} \frac{(2\cos(3\theta))^2}{5-2(2\cos(2\theta))} \, \mathrm{d}\theta \\
+            &= \frac{1}{4} \int_0^{2\pi} \frac{(e^{3\iota\theta} + e^{-3\iota\theta})^2}{5-2(e^{2\iota\theta} + e^{-2\iota\theta})} \, \mathrm{d}\theta \\
+            &= \frac{1}{4} \int_0^{2\pi} \frac{(e^{3\iota\theta} + e^{-3\iota\theta})^2}{5-2(e^{2\iota\theta} + e^{-2\iota\theta})} \frac{\iota e^{\iota\theta}}{\iota e^{\iota\theta}} \, \mathrm{d}\theta \\
+            &= \frac{1}{4} \int_{\abs{z} = 1} \frac{(z^3 + z^{-3})^2}{5 - 2(z^2 + z^{-2})} \frac{1}{\iota z} \, \mathrm{d}z \\
+            &= -\frac{1}{8\iota} \int_{\abs{z}=1} \frac{(z^6+1)^2}{z^5(z^4 - 5z^2/2 + 1)} \, \mathrm{d}z
+        \end{align*}
+        
+        Note that $z^4 - 5z^2/2 + 1$ can be solved easily since it's a quadratic in $z^2$. We get the solutions to be $\pm\sqrt{2}, \pm\dfrac{1}{\sqrt{2}}$. Thus, all the poles are given by
+        \[
+            0, \pm \frac{1}{\sqrt{2}}, \pm \sqrt{2}.
+        \]
+        Since $\pm\sqrt{2}$ lie outside the unit circle, we won't be concerned about them. Let us now calculate the residue at the remaining poles. 
+        
+        \par\noindent\rule{\textwidth}{0.4pt}
+        
+        \textbf{Residue at $0$.} This is a pole of order $5$. To compute the residue, we would have to compute the fourth derivative. Of course, we will not do this! Rather, let's find the Laurent series directly. We have
+        
+        \begin{align*}
+            \frac{(z^6+1)^2}{z^5(z^4 - 5z^2/2 + 1)} &= \frac{1}{z^5} \frac{(z^6 + 1)^2}{1 - (5z^2/2 - z^4)} \\
+            &= \frac{1}{z^5} \left\{ \left( z^{12} + 2z^6 + 1 \right) \cdot \left[ 1 + \left( \frac{5}{2}z^2 - z^4 \right) + \left( \frac{5}{2}z^2 - z^4 \right)^2 + \cdots  \right] \right\}
+        \end{align*}
+        The desired residue is then just the coefficient of $\frac{1}{z}$ in the above series, which is the coefficient of $z^4$ in $\left\{ \cdots \right\}$. This is easily seen to be 
+        \[
+            -1 + \frac{25}{4} = \frac{21}{4}.
+        \]
+        
+        \par\noindent\rule{\textwidth}{0.4pt}
+        
+        \textbf{Residue at $1/\sqrt{2}$.} Note that $1/\sqrt{2}$ is a simple pole. Thus, the residue calculation will also be simple. (This is probably why these are called simple poles.) We factorise the integrand as 
+        \[
+            \dfrac{(z^6+1)^2}{z^5(z^2-2)\left( z - \dfrac{1}{\sqrt{2}} \right)\left( z + \dfrac{1}{\sqrt{2}} \right)}.
+        \]
+        Thus, the residue is just given by
+        \begin{align*}
+            \dfrac{\left(\left( \dfrac{1}{\sqrt{2}} \right)^6+1\right)^2}{\left( \dfrac{1}{\sqrt{2}}\right)^5\left(\left( \dfrac{1}{\sqrt{2}} \right)^2-2\right)\left( \dfrac{1}{\sqrt{2}} + \dfrac{1}{\sqrt{2}} \right)} &= \dfrac{\left( \dfrac{1}{8} +1\right)^2}{ \dfrac{1}{4\sqrt{2}}\cdot\left(\dfrac{1}{2}-2\right)\cdot\sqrt{2}} \\
+            &= -\frac{27}{8}.
+        \end{align*}
+        
+        \par\noindent\rule{\textwidth}{0.4pt}
+        
+        \textbf{Residue at $-1/\sqrt{2}$.} This also turns out to be $-\dfrac{27}{8}$.
+        
+        \par\noindent\rule{\textwidth}{0.4pt}
+        
+        Thus, the integral turns out to be
+        \begin{align*}
+            -\frac{1}{8\iota} \cdot 2\pi\iota \left( \frac{21}{4} - \frac{27}{8} - \frac{27}{8} \right) &= -\frac{1}{8\iota} \cdot 2\pi\iota \left( \frac{21}{4} - \frac{27}{4} \right) \\
+            &= -\frac{1}{8\iota} \cdot 2\pi\iota \left( -\frac{6}{4}\right) \\
+            &= \boxed{\frac{3\pi}{8}.}
+        \end{align*}
+    \end{soln}
+    
+    \item Evaluate $\displaystyle\int_{\abs{z-2}=4} \frac{2z^3 + z^2 + 4}{z^4 + 4z^2} \, \mathrm{d}z$.
+    
+    \begin{soln}
+        Define
+        \[
+            f(z) \vcentcolon= \frac{2z^3 + z^2 + 4}{z^4 + 4z^2}.
+        \]
+        The singularities of $f$ are $0,\pm2\iota$. Since these are only finitely many, they are all isolated. Moreover, it is to easy to verify that these are all poles and all of these lie within the given circle. Thus, the integral is just
+        \[
+            2\pi\iota \sum_{z \, \in \, \{0,\pm2\iota\}} \text{Res}(f;z)
+        \]
+        Thus, it remains to compute the residues. For that, we first factor $f$ as
+        \[
+            f(z) = \frac{2z^3 + z^2 + 4}{z^2(z+2\iota)(z-2\iota)}.
+        \]
+        \par\noindent\rule{\textwidth}{0.4pt}
+        \textbf{Residue at $0$.} Clearly, $0$ is a pole of order $2$. Thus the residue at $0$ is given by $\dfrac{1}{1!} g^{\prime}(0)$ where $g(z) \vcentcolon= z^2f(z)$. We thus have
+        \[
+            g(z) = \frac{2z^3 + z^2 + 4}{z^2 + 4}.
+        \]
+        Using the quotient rule, we have
+        \[
+            g^{\prime}(z) = \frac{(6z^2 + 2z)(z^2 + 4) - 2z(2z^3 + z^2 + 4)}{(z^2 + 4)^2}.
+        \]
+        Although that's a nasty expression, remember that we only need to evaluate it at $0$. We thus get
+        \[
+            g^{\prime}(0) = \frac{0\cdot4 - 4\cdot0}{4^2} = 0.
+        \]
+        Thus, $\text{Res}(f;0) = 0$.
+        \par\noindent\rule{\textwidth}{0.4pt}
+        \textbf{Residue at $2\iota$.} Again, $2\iota$ is a simple pole so we have nothing to worry about. The residue is simply given by \emph{simply} given by $\displaystyle\lim_{z \to 2\iota} (z-2\iota)f(z)$, which turns out to be
+        \begin{align*}
+            \lim_{z \to 2\iota} (z-2\iota) f(z) &= \lim_{z \to 2\iota} \frac{2z^3 + z^2 + 4}{z^2(z+2\iota)} \\
+            &= \frac{2(2\iota)^3 + 0}{(2\iota)^2(2\iota + 2\iota)} \\
+            &= 1.
+        \end{align*}
+        Thus, $\text{Res}(f;2\iota) = 1$.
+        \par\noindent\rule{\textwidth}{0.4pt}
+        \textbf{Residue at $-2\iota$.} This also turns out to be $1$. 
+        \par\noindent\rule{\textwidth}{0.4pt}
+        Thus, the integral is given by
+        \[
+            2\pi\iota \sum_{z \, \in \, \{0,\pm2\iota\}} \text{Res}(f;z) = 2\pi\iota (0 + 1 + 1) = \boxed{4\pi\iota.}
+        \]
+    \end{soln}
+    
+    \newpage
+    
+    \item Show with and without the open mapping theorem that if $f$ is a holomorphic function on a domain $\Omega$ with $\abs{f}$ constant, then $f$ is constant.
+    
+    \begin{soln}
+        \phantom{hi}\\
+        \textbf{Without OMT.} Writing $f = u + \iota v$ as usual, we see that
+        \[
+            u^2 + v^2 \equiv c.
+        \]
+        If $c = 0$, we are done. Assume $c \neq 0$. Differentiating the above with respect to $x$ gives us
+        \begin{equation*}
+            uu_x + vv_x = 0. \tag{$*$}
+        \end{equation*}
+            
+        Similarly, differentiating with respect to $y$ gives us
+        \[
+            uu_y + vv_y = 0.
+        \]
+        Using CR equations, we may rewrite the above equation as
+        \begin{equation*}
+           -uv_x + vu_x = 0. \tag{$**$}
+        \end{equation*}
+        Putting together $(*)$ and $(**)$ gives us
+        \[
+            \begin{bmatrix}
+                    u & v \\ v & -u
+            \end{bmatrix} \begin{bmatrix}
+                    u_x \\ v_x
+            \end{bmatrix} = \begin{bmatrix}
+                    0 \\ 0
+            \end{bmatrix}.
+        \]
+        Note that $\det\begin{bmatrix}
+                u & v \\ v & -u
+        \end{bmatrix} = -c \neq 0$ and thus, $u_x = v_x \equiv 0$ on $\Omega$. Thus, we get $f^{\prime} \equiv 0$ on $\Omega$. Since $\Omega$ is path-connected, $f$ is constant.
+        
+        \textbf{With OMT.} Suppose $f$ is not constant. Then, OMT tells us that the image $f(\Omega)$ must be open in $\mathbb{C}$. However, $\abs{f}$ being constant tells us that $f(\Omega)$ must be a (non-empty) subset of the circle $\{z \mid \abs{z} = c \}$, where $c$ is the constant that $\abs{f}$ equals. However, no non-empty subset of such a circle is open. Thus, we arrive at a contradiction which shows that $f$ must be constant.
+    \end{soln}
+    
+    \item Show that $\displaystyle\int_{-\infty}^{\infty} \frac{x}{(x^2+2x+2)(x^2+4)} \, \mathrm{d}x = -\frac{\pi}{10}$.
+    
+    \begin{soln}
+        We define
+        \[
+            f(z) \vcentcolon= \frac{z}{(z^2+2z+2)(z^2+4)}.
+        \]
+        This has poles at $-1\pm\iota, \pm2\iota$. Thus, if we $R > 2$, then all the poles \textbf{in the upper half plane} are enclosed within the following contour. 
+        
+        \begin{center}
+    		\begin{tikzpicture}
+    			\def\Len{6.5}
+    			\def\len{1}
+    			\def\R{5}
+    			\def\r{1}
+    			\draw[thick, ->] (0, 0) -- (\Len, 0);
+    			\draw[thick, ->] (0, 0) -- (0, \Len);
+    			\draw[thick, ->] (0, 0) -- (-\Len, 0);
+    			\draw[thick, ->] (0, 0) -- (0, -\len);
+    			\draw[thick, red, ->-=at 0.05 with label {$\gamma_1$}, ->-=at 0.49 with label {$\gamma_2$}] (0, 0) -- (\R, 0) arc (0:180:\R) -- (0, 0);
+    			\draw (\R,1pt) -- (\R,-1pt) node[anchor=north] {$R$};
+    			\draw (-\R,1pt) -- (-\R,-1pt) node[anchor=north] {$-R$};
+    		\end{tikzpicture}
+    	\end{center}
+    	
+    	Applying residue theorem to the above contour, we get
+    	\[
+    	    \int_{\gamma_1} f(z) \, \mathrm{d}z + \int_{\gamma_2} f(z) \, \mathrm{d}z = 2\pi\iota \sum_{z \, \in \, \{2\iota, -1+\iota\}} \text{Res}(f;z).
+    	\]
+    	In the limit that $R \to \infty$, the integral along $\gamma_1$ is exactly what we want. A simple application of the ML inequality tells us that the integral along $\gamma_2$ vanishes in the limit $R \to \infty$. Thus, the desired integral is just
+    	\[
+    	    2\pi\iota \sum_{z \, \in \, \{2\iota, -1+\iota\}} \text{Res}(f;z).
+    	\]
+    	Both these poles are simple, so the residue calculation is rather straightforward. We have
+    	\[
+    	    \text{Res}(f;2\iota) = -\frac{1}{20} - \frac{\iota}{10} \quad \text{and} \quad \text{Res}(f;-1+\iota) = \frac{1}{20} + \frac{3\iota}{20}.
+    	\]
+    	Thus, 
+        \begin{align*}
+            \int_{-\infty}^{\infty} \frac{x}{(x^2+2x+2)(x^2+4)} \, \mathrm{d}x &= 2\pi\iota \sum_{z \, \in \, \{2\iota, -1+\iota\}} \text{Res}(f;z) \\
+            &= 2\pi\iota \cdot \left( -\frac{1}{20} - \frac{\iota}{10} + \frac{1}{20} + \frac{3\iota}{20} \right) \\
+            &= 2\pi\iota \cdot \frac{\iota}{20} \\
+            &= \boxed{-\frac{\pi}{10}.}
+        \end{align*}
+        
+    \end{soln}
+    
+    \item Compute the number of zeros of the polynomial $z^5 + z^2 - 6z + 3$ inside the annulus $1/3 < \abs{z} < 1$ using Rouché's Theorem.
+    
+    \begin{soln}
+        We first recall Rouché's Theorem. Let $\gamma$ be a closed contour in $\mathbb{C}$. If $f$ and $g$ are holomorphic on an open set containing $\gamma$ and its interior and if $\abs{g} < \abs{f}$ on $\gamma$, then $f$ and $f+g$ have the same number of zeros in $\text{Int}(\gamma)$ where each zero is counted with multiplicity. \\
+        Let $f(z) \vcentcolon= z^5 + z^2 - 6z + 3$. First, we consider the contour $\abs{z} = \dfrac{1}{3}$. On this contour, note that
+        \begin{align*}
+            \abs{z^5 + z^2 - 6z} &\leq \abs{z}^5 + \abs{z}^2 + 6\abs{z} \\
+            &= \left( \frac{1}{3} \right)^5 + \left( \frac{1}{3} \right)^2 + 6\cdot\frac{1}{3} \\
+            &= \frac{514}{243} < 3.
+        \end{align*}
+            Thus, inside the disc $\abs{z} < 1/3$, the polynomial $f(z)$ has the same number of zeros as the polynomial $3$. Thus, $f(z)$ has no zeros within the contour $\abs{z} < 1/3$. Now, on the contour $\abs{z} = 1$, we see that
+            \begin{align*}
+                \abs{z^5 + z^2 + 3} &\leq \abs{z}^5 + \abs{z}^2 + 3 \\
+                &= 5 < 6 = \abs{-6z}.
+            \end{align*}
+            Thus, inside the disc $\abs{z} < 1$, the polynomial $f(z)$ has the same number of zeros as $-6z$, which has exactly one zero. Putting together these two results, we get that $f(z)$ has exactly one zero inside the annulus $1/3 < \abs{z} < 1$.
+    \end{soln}
+
+    \item Show that the function $u(x,y) = \log(x^2+y^2)$ is harmonic on the annulus $1 < \abs{z} < 2$. Does $u(x,y)$ have a harmonic conjugate?
+    
+    \begin{soln}
+        Let $D$ be the annulus $1 < \abs{z} < 2$. To show that $u(x,y)$ is harmonic on $D$, we compute partials at any arbitrary point $(x,y) \in D$. We have
+        \[
+            u_x(x,y) = \frac{2x}{x^2 + y^2} \quad \text{and} \quad u_y(x,y) = \frac{2y}{x^2 + y^2}.
+        \]
+        This gives us
+        \[
+            u_{xx}(x,y) = \frac{-2x^2 + 2y^2}{(x^2 + y^2)^2} \quad \text{and} \quad u_{yy}(x,y) = \frac{2x^2 - 2y^2}{(x^2+y^2)^2}.
+        \]
+        Clearly, $u_{xx} + u_{yy} \equiv 0$ on $D$, and thus $u$ is harmonic on $D$. However, $u$ has no harmonic conjugate on $D$ as we now show.
+        
+        Suppose for the sake of contradiction that $v(x,y)$ is a harmonic conjugate of $u(x,y)$ on $D$, so that $f = u + \iota v$ is holomorphic on $D$. By the Cauchy-Riemann equations, we must have
+        \[
+            \nabla v(x,y) = \left( -\frac{2y}{x^2 + y^2}, \frac{2x}{x^2 + y^2} \right).
+        \]
+        However, we know from MA111 that the above is not possible! For instance, the line integral of $\nabla v$ along a circle $C$ of radius $R$ (where $1 < R < 2$) must turn out to be zero. We show that this is not the case. Consider a parameterisation $\gamma \colon [0,2\pi] \to D$ defined by
+        \[
+            \gamma(\theta) = (R\cos\theta, R\sin\theta).
+        \]
+        We then have
+        \begin{align*}
+            \oint_{C} \nabla v \cdot \mathrm{d}\gamma &= \int_0^{2\pi}  \left( -\frac{2R\sin\theta}{R^2}, \frac{2R\cos\theta}{R^2} \right) \cdot \left( -R\sin\theta, R\cos\theta \right) \, \mathrm{d}\theta \\
+            &= \int_0^{2\pi} (2\sin^2\theta + 2\cos^2\theta) \, \mathrm{d}\theta \\
+            &= 4\pi \neq 0. \qedhere
+        \end{align*}
+    \end{soln}
+    
+    \item Show that if $f(z)$ is a non-zero polynomial, then $g(z) = e^zf(z)$ has an essential singularity at $\infty$. 
+    
+    \begin{soln}
+        First, let's approach $\infty$ along the positive real axis. Here, we have
+        \[
+            \lim_{z \to +\infty} \abs{g(z)} = \lim_{z \to +\infty} \abs{e^z} \abs{f(z)} = \infty,
+        \]
+        since both $\abs{e^z}$ and $\abs{f(z)}$ go to $\infty$ as $z \to +\infty$. However, approaching $\infty$ along the negative real axis, we have
+        \[
+            \lim_{z \to -\infty} \abs{g(z)} = \lim_{z \to -\infty} \abs{e^z f(z)} = 0.
+        \]
+        Thus, $\displaystyle\lim_{\abs{z} \to \infty} \abs{g(z)}$ exists neither as a finite complex number nor as $\infty$. Thus, $g$ has an essential singularity at $\infty$.
+    \end{soln}
+\end{enumerate}
 
 \end{document}
